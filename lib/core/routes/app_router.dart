@@ -1,0 +1,22 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:social/core/routes/dashboard.dart';
+import 'package:social/presentation/home/home_page.dart';
+part 'app_router.gr.dart';
+
+@AutoRouterConfig(replaceInRouteName: 'Page,Route')
+class AppRouter extends RootStackRouter {
+  @override
+  RouteType get defaultRouteType => const RouteType.adaptive();
+
+  @override
+  List<AutoRoute> get routes => [
+    AutoRoute(
+      page: DashboardRoute.page,
+      initial: true,
+      children: [
+        AutoRoute(page: HomeRoute.page),
+        AutoRoute(page: SearchRoute.page),
+      ],
+    ),
+  ];
+}
