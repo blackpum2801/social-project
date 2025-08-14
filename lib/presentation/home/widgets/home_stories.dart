@@ -32,9 +32,10 @@ class HomeStories extends StatelessWidget {
     ];
 
     return SizedBox(
-      height: avatarRadius * 2 + 55,
+      // +65 to avoid overflow
+      height: avatarRadius * 2 + 65,
       child: ListView.separated(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 18),
         scrollDirection: Axis.horizontal,
         itemCount: names.length + 1,
         separatorBuilder: (_, __) => const SizedBox(width: 16),
