@@ -43,6 +43,22 @@ class HomeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [PostPage]
+class PostRoute extends PageRouteInfo<void> {
+  const PostRoute({List<PageRouteInfo>? children})
+    : super(PostRoute.name, initialChildren: children);
+
+  static const String name = 'PostRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const PostPage();
+    },
+  );
+}
+
+/// generated route for
 /// [SearchPage]
 class SearchRoute extends PageRouteInfo<void> {
   const SearchRoute({List<PageRouteInfo>? children})

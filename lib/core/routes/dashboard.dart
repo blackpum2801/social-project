@@ -3,6 +3,7 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 
 import 'package:flutter/material.dart';
+import 'package:social/core/constants/navigation_strings.dart';
 import 'package:social/core/routes/app_router.dart';
 
 @RoutePage()
@@ -15,7 +16,7 @@ class DashboardPage extends StatelessWidget {
       routes: const [
         HomeRoute(),
         SearchRoute(),
-        // CreatePostRoute(),
+        PostRoute(),
         // NewsRoute(),
         // ProfileRoute(),
       ],
@@ -34,23 +35,23 @@ class DashboardPage extends StatelessWidget {
           items: [
             CurvedNavigationBarItem(
               child: const Icon(Icons.home_outlined),
-              label: 'Home',
+              label: NavigationStrings.homeTab,
             ),
             CurvedNavigationBarItem(
               child: const Icon(Icons.search),
-              label: 'Search',
+              label: NavigationStrings.searchTab,
             ),
             CurvedNavigationBarItem(
-              child: const Icon(Icons.chat_bubble_outline),
-              label: 'Chat',
+              child: const Icon(Icons.create_outlined),
+              label: NavigationStrings.createTab,
             ),
             CurvedNavigationBarItem(
               child: const Icon(Icons.article_outlined),
-              label: 'News',
+              label: NavigationStrings.chatTab,
             ),
             CurvedNavigationBarItem(
               child: const Icon(Icons.person_outline),
-              label: 'Profile',
+              label: NavigationStrings.profileTab,
             ),
           ],
         );
