@@ -7,7 +7,7 @@ class HomePost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
 
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,

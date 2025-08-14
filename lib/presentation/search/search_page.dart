@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:social/presentation/search/widgets/search_friend_suggestion_card.dart';
 import 'package:social/presentation/search/widgets/search_item.dart';
-import 'package:social/presentation/search/widgets/search_tabbar.dart';
-import 'package:social/presentation/search/widgets/search_trending.dart';
+import 'package:social/presentation/search/widgets/search_recent.dart';
 
 @RoutePage()
 class SearchPage extends StatelessWidget {
@@ -18,9 +18,9 @@ class SearchPage extends StatelessWidget {
           children: [
             SearchItem(),
             SizedBox(height: 20),
-            SearchTabbar(),
+            SearchRecent(),
             SizedBox(height: 20),
-            SearchTrending(),
+            SearchFriendSuggestionCard(),
           ],
         ),
       ),

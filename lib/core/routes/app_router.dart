@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:social/core/routes/dashboard.dart';
 import 'package:social/presentation/home/home_page.dart';
+import 'package:social/presentation/search/search_page.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
