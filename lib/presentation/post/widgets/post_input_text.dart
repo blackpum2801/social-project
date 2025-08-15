@@ -3,15 +3,12 @@ import 'package:flutter/material.dart';
 class PostInputText extends StatelessWidget {
   const PostInputText({super.key});
 
-  static const _maxLen = 2000;
-
   @override
   Widget build(BuildContext context) {
-    const content = '';
     return Stack(
       children: [
         const TextField(
-          maxLength: _maxLen,
+          maxLength: 2000,
           maxLines: null,
           decoration: InputDecoration(
             hintText: 'Bạn đang nghĩ gì?',
@@ -26,7 +23,7 @@ class PostInputText extends StatelessWidget {
           right: 0,
           bottom: 0,
           child: Text(
-            '${content.length}/$_maxLen',
+            '0/2000',
             style: TextStyle(fontSize: 12, color: Colors.black45),
           ),
         ),
