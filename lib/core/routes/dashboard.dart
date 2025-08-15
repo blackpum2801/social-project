@@ -17,7 +17,7 @@ class DashboardPage extends StatelessWidget {
         HomeRoute(),
         SearchRoute(),
         PostRoute(),
-        // NewsRoute(),
+        ChatRoute(),
         // ProfileRoute(),
       ],
       extendBody: true,
