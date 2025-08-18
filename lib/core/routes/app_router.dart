@@ -3,6 +3,7 @@ import 'package:social/core/routes/dashboard.dart';
 import 'package:social/presentation/chat/chat_page.dart';
 import 'package:social/presentation/home/home_page.dart';
 import 'package:social/presentation/post/post_page.dart';
+import 'package:social/presentation/profile/profile_page.dart';
 import 'package:social/presentation/search/search_page.dart';
 part 'app_router.gr.dart';
 
@@ -21,6 +22,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: SearchRoute.page),
         AutoRoute(page: PostRoute.page),
         AutoRoute(page: ChatRoute.page),
+        AutoRoute(page: ProfileRoute.page),
       ],
     ),
   ];
