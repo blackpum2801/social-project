@@ -23,7 +23,6 @@ class DashboardPage extends StatelessWidget {
       extendBody: true,
       bottomNavigationBuilder: (context, tabsRouter) {
         return CurvedNavigationBar(
-          // index đang chọn
           index: tabsRouter.activeIndex,
           onTap: tabsRouter.setActiveIndex,
           backgroundColor: Colors.transparent,
@@ -31,7 +30,6 @@ class DashboardPage extends StatelessWidget {
           buttonBackgroundColor: Theme.of(context).colorScheme.primary,
           height: 64,
           animationDuration: const Duration(milliseconds: 300),
-
           items: [
             CurvedNavigationBarItem(
               child: const Icon(Icons.home_outlined),
