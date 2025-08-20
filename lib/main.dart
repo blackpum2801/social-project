@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
       title: 'Social App',
       routerConfig: _appRouter.config(),
       debugShowCheckedModeBanner: false,
-
       themeMode: ThemeMode.system,
     );
   }
