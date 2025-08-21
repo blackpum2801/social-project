@@ -22,7 +22,6 @@ dependencies:
   json_annotation: ^4.9.0
   cached_network_image: ^3.4.1
   shared_preferences: ^2.5.3
-  get_it: ^8.2.0
   flutter_bloc: ^9.1.1
   google_fonts: ^6.3.0
   flutter_svg: ^2.2.0
@@ -30,6 +29,8 @@ dependencies:
   flutter_chat_core: ^2.8.0
   flutter_chat_ui: ^2.9.0
   flutter_chat_types: ^3.6.2
+  get_it: ^8.2.0
+  dio: ^5.9.0
 
 dev_dependencies:
   flutter_test:
