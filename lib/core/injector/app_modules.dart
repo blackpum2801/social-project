@@ -1,9 +1,17 @@
 import 'package:dio/dio.dart';
 import 'package:social/core/constants/api_config.dart';
 import 'package:social/core/injector/injector.dart';
+import 'package:social/core/services/api_services.dart';
+import 'package:social/data/repo_impl/register_repository_impl.dart';
+import 'package:social/domain/usecases/register_usecase/register_usecase.dart';
 
 class AppModules {
   static Future<void> inject() async {
+    // register
+    injector.registerLazySingleton<RegisterUsecase>(() => RegisterUsecase());
+    injector.registerLazySingleton<RegisterRepositoryImpl>(
+      () => RegisterRepositoryImpl(injector.get<ApiServices>()),
+    );
     injector.registerLazySingleton<Dio>(() {
       final dio = Dio();
       dio.options.baseUrl = ApiConfig.baseUrl;
