@@ -8,11 +8,7 @@ class RegisterRepositoryImpl extends RegisterRepository {
   RegisterRepositoryImpl(this._apiServices);
   @override
   Future<RegisterResponse> register({required RegisterRequest request}) async {
-    return await _apiServices.callAPIRegister(
-      email: request.email,
-      password: request.password,
-      passwordConfirmation: request.passwordConfirmation,
-      name: request.name,
-    );
+    final res = await _apiServices.callAPIRegister(request: request);
+    return res;
   }
 }

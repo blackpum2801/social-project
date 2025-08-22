@@ -8,11 +8,8 @@ part 'api_services.g.dart';
 @RestApi()
 abstract class ApiServices {
   factory ApiServices(Dio dio, {String? baseUrl}) = _ApiServices;
-  @GET(ApiConfig.register)
+  @POST(ApiConfig.register)
   Future<RegisterResponse> callAPIRegister({
-    @Query('email') required String email,
-    @Query('password') required String password,
-    @Query('password_confirmation') required String passwordConfirmation,
-    @Query('name') required String name,
+    @Body() required RegisterRequest request,
   });
 }
