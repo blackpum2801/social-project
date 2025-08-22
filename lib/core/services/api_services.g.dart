@@ -19,22 +19,14 @@ class _ApiServices implements ApiServices {
 
   @override
   Future<RegisterResponse> callAPIRegister({
-    required String email,
-    required String password,
-    required String passwordConfirmation,
-    required String name,
+    required RegisterRequest request,
   }) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'email': email,
-      r'password': password,
-      r'password_confirmation': passwordConfirmation,
-      r'name': name,
-    };
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
+    final _data = request;
     final _options = _setStreamType<RegisterResponse>(
-      Options(method: 'GET', headers: _headers, extra: _extra)
+      Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
             '/auth/register',
