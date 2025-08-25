@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social/core/errors/api_error_handler.dart';
-import 'package:social/data/models/request/register_request.dart';
+import 'package:social/data/models/request/register/register_request.dart';
 import 'package:social/domain/usecases/register_usecase/register_usecase.dart';
 import 'package:social/presentation/register/bloc/register_state.dart';
 

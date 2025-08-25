@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:social/data/models/response/register/register_response.dart';
+import 'package:social/data/models/response/auth/auth_response.dart';
 
 part 'register_state.freezed.dart';
 
@@ -14,7 +14,7 @@ enum RegisterStatus {
 sealed class RegisterState with _$RegisterState {
   const factory RegisterState({
     @Default(RegisterStatus.submissionInProgress) RegisterStatus status,
-    RegisterResponse? response,
+    AuthResponse? response,
     String? errorMessage,
   }) = _RegisterState;
   factory RegisterState.initial() => const RegisterState(
