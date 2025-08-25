@@ -1,6 +1,6 @@
-import 'package:social/data/models/request/register_request.dart';
-import 'package:social/data/models/response/register/register_response.dart';
+import 'package:social/data/models/request/register/register_request.dart';
+import 'package:social/data/models/response/auth/auth_response.dart';
 
 abstract class RegisterRepository {
-  Future<RegisterResponse> register({required RegisterRequest request});
+  Future<AuthResponse> register({required RegisterRequest request});
 }
