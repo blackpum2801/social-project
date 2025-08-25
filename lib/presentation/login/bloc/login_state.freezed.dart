@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'register_state.dart';
+part of 'login_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -12,20 +12,20 @@ part of 'register_state.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
-mixin _$RegisterState {
+mixin _$LoginState {
 
- RegisterStatus get status; AuthResponse? get response; String? get errorMessage;
-/// Create a copy of RegisterState
+ LoginStatus get status; AuthResponse? get response; String? get errorMessage;
+/// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$RegisterStateCopyWith<RegisterState> get copyWith => _$RegisterStateCopyWithImpl<RegisterState>(this as RegisterState, _$identity);
+$LoginStateCopyWith<LoginState> get copyWith => _$LoginStateCopyWithImpl<LoginState>(this as LoginState, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RegisterState&&(identical(other.status, status) || other.status == status)&&(identical(other.response, response) || other.response == response)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LoginState&&(identical(other.status, status) || other.status == status)&&(identical(other.response, response) || other.response == response)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
@@ -34,18 +34,18 @@ int get hashCode => Object.hash(runtimeType,status,response,errorMessage);
 
 @override
 String toString() {
-  return 'RegisterState(status: $status, response: $response, errorMessage: $errorMessage)';
+  return 'LoginState(status: $status, response: $response, errorMessage: $errorMessage)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $RegisterStateCopyWith<$Res>  {
-  factory $RegisterStateCopyWith(RegisterState value, $Res Function(RegisterState) _then) = _$RegisterStateCopyWithImpl;
+abstract mixin class $LoginStateCopyWith<$Res>  {
+  factory $LoginStateCopyWith(LoginState value, $Res Function(LoginState) _then) = _$LoginStateCopyWithImpl;
 @useResult
 $Res call({
- RegisterStatus status, AuthResponse? response, String? errorMessage
+ LoginStatus status, AuthResponse? response, String? errorMessage
 });
 
 
@@ -53,24 +53,24 @@ $AuthResponseCopyWith<$Res>? get response;
 
 }
 /// @nodoc
-class _$RegisterStateCopyWithImpl<$Res>
-    implements $RegisterStateCopyWith<$Res> {
-  _$RegisterStateCopyWithImpl(this._self, this._then);
+class _$LoginStateCopyWithImpl<$Res>
+    implements $LoginStateCopyWith<$Res> {
+  _$LoginStateCopyWithImpl(this._self, this._then);
 
-  final RegisterState _self;
-  final $Res Function(RegisterState) _then;
+  final LoginState _self;
+  final $Res Function(LoginState) _then;
 
-/// Create a copy of RegisterState
+/// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? response = freezed,Object? errorMessage = freezed,}) {
   return _then(_self.copyWith(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as RegisterStatus,response: freezed == response ? _self.response : response // ignore: cast_nullable_to_non_nullable
+as LoginStatus,response: freezed == response ? _self.response : response // ignore: cast_nullable_to_non_nullable
 as AuthResponse?,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
-/// Create a copy of RegisterState
+/// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -86,8 +86,8 @@ $AuthResponseCopyWith<$Res>? get response {
 }
 
 
-/// Adds pattern-matching-related methods to [RegisterState].
-extension RegisterStatePatterns on RegisterState {
+/// Adds pattern-matching-related methods to [LoginState].
+extension LoginStatePatterns on LoginState {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -100,10 +100,10 @@ extension RegisterStatePatterns on RegisterState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _RegisterState value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _LoginState value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _RegisterState() when $default != null:
+case _LoginState() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -122,10 +122,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _RegisterState value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _LoginState value)  $default,){
 final _that = this;
 switch (_that) {
-case _RegisterState():
+case _LoginState():
 return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -140,10 +140,10 @@ return $default(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _RegisterState value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _LoginState value)?  $default,){
 final _that = this;
 switch (_that) {
-case _RegisterState() when $default != null:
+case _LoginState() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -161,9 +161,9 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( RegisterStatus status,  AuthResponse? response,  String? errorMessage)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( LoginStatus status,  AuthResponse? response,  String? errorMessage)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _RegisterState() when $default != null:
+case _LoginState() when $default != null:
 return $default(_that.status,_that.response,_that.errorMessage);case _:
   return orElse();
 
@@ -182,9 +182,9 @@ return $default(_that.status,_that.response,_that.errorMessage);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( RegisterStatus status,  AuthResponse? response,  String? errorMessage)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( LoginStatus status,  AuthResponse? response,  String? errorMessage)  $default,) {final _that = this;
 switch (_that) {
-case _RegisterState():
+case _LoginState():
 return $default(_that.status,_that.response,_that.errorMessage);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -199,9 +199,9 @@ return $default(_that.status,_that.response,_that.errorMessage);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( RegisterStatus status,  AuthResponse? response,  String? errorMessage)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( LoginStatus status,  AuthResponse? response,  String? errorMessage)?  $default,) {final _that = this;
 switch (_that) {
-case _RegisterState() when $default != null:
+case _LoginState() when $default != null:
 return $default(_that.status,_that.response,_that.errorMessage);case _:
   return null;
 
@@ -213,25 +213,25 @@ return $default(_that.status,_that.response,_that.errorMessage);case _:
 /// @nodoc
 
 
-class _RegisterState implements RegisterState {
-  const _RegisterState({this.status = RegisterStatus.submissionInProgress, this.response, this.errorMessage});
+class _LoginState implements LoginState {
+  const _LoginState({this.status = LoginStatus.submissionInProgress, this.response, this.errorMessage});
   
 
-@override@JsonKey() final  RegisterStatus status;
+@override@JsonKey() final  LoginStatus status;
 @override final  AuthResponse? response;
 @override final  String? errorMessage;
 
-/// Create a copy of RegisterState
+/// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$RegisterStateCopyWith<_RegisterState> get copyWith => __$RegisterStateCopyWithImpl<_RegisterState>(this, _$identity);
+_$LoginStateCopyWith<_LoginState> get copyWith => __$LoginStateCopyWithImpl<_LoginState>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RegisterState&&(identical(other.status, status) || other.status == status)&&(identical(other.response, response) || other.response == response)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LoginState&&(identical(other.status, status) || other.status == status)&&(identical(other.response, response) || other.response == response)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
@@ -240,18 +240,18 @@ int get hashCode => Object.hash(runtimeType,status,response,errorMessage);
 
 @override
 String toString() {
-  return 'RegisterState(status: $status, response: $response, errorMessage: $errorMessage)';
+  return 'LoginState(status: $status, response: $response, errorMessage: $errorMessage)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$RegisterStateCopyWith<$Res> implements $RegisterStateCopyWith<$Res> {
-  factory _$RegisterStateCopyWith(_RegisterState value, $Res Function(_RegisterState) _then) = __$RegisterStateCopyWithImpl;
+abstract mixin class _$LoginStateCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
+  factory _$LoginStateCopyWith(_LoginState value, $Res Function(_LoginState) _then) = __$LoginStateCopyWithImpl;
 @override @useResult
 $Res call({
- RegisterStatus status, AuthResponse? response, String? errorMessage
+ LoginStatus status, AuthResponse? response, String? errorMessage
 });
 
 
@@ -259,25 +259,25 @@ $Res call({
 
 }
 /// @nodoc
-class __$RegisterStateCopyWithImpl<$Res>
-    implements _$RegisterStateCopyWith<$Res> {
-  __$RegisterStateCopyWithImpl(this._self, this._then);
+class __$LoginStateCopyWithImpl<$Res>
+    implements _$LoginStateCopyWith<$Res> {
+  __$LoginStateCopyWithImpl(this._self, this._then);
 
-  final _RegisterState _self;
-  final $Res Function(_RegisterState) _then;
+  final _LoginState _self;
+  final $Res Function(_LoginState) _then;
 
-/// Create a copy of RegisterState
+/// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? response = freezed,Object? errorMessage = freezed,}) {
-  return _then(_RegisterState(
+  return _then(_LoginState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as RegisterStatus,response: freezed == response ? _self.response : response // ignore: cast_nullable_to_non_nullable
+as LoginStatus,response: freezed == response ? _self.response : response // ignore: cast_nullable_to_non_nullable
 as AuthResponse?,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
 
-/// Create a copy of RegisterState
+/// Create a copy of LoginState
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')

@@ -3,7 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social/core/injector/injector.dart';
 import 'package:social/core/mixins/loading_mixin.dart';
-import 'package:social/data/models/request/register_request.dart';
+import 'package:social/data/models/request/register/register_request.dart';
 
 import 'package:social/presentation/register/bloc/register_presenter.dart';
 import 'package:social/presentation/register/bloc/register_state.dart';

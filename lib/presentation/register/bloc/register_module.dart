@@ -4,7 +4,7 @@ import 'package:social/presentation/register/bloc/register_presenter.dart';
 
 class RegisterModule {
   static Future<void> inject() async {
-    injector.registerLazySingleton<RegisterPresenter>(
+    injector.registerFactory<RegisterPresenter>(
       () => RegisterPresenter(injector.get<RegisterUsecase>()),
     );
   }
