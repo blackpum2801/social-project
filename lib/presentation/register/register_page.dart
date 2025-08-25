@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social/core/injector/injector.dart';
+import 'package:social/core/mixins/loading_mixin.dart';
 import 'package:social/data/models/request/register_request.dart';
 
 import 'package:social/presentation/register/bloc/register_presenter.dart';
@@ -18,7 +19,7 @@ class RegisterPage extends StatefulWidget {
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _RegisterPageState extends State<RegisterPage> with LoadingMixin {
   final _presenter = injector.get<RegisterPresenter>();
 
   final _nameController = TextEditingController();
@@ -53,8 +54,13 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SafeArea(
         child: BlocConsumer<RegisterPresenter, RegisterState>(
           bloc: _presenter,
-          buildWhen: (prev, curr) => prev.status != curr.status,
           listener: (context, state) {
+            if (state.status == RegisterStatus.submissionInProgress) {
+              showLoading();
+            } else {
+              hideLoading();
+            }
+
             if (state.status == RegisterStatus.submissionSuccess) {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text("Đăng ký thành công")),
@@ -68,6 +74,9 @@ class _RegisterPageState extends State<RegisterPage> {
               );
             }
           },
+          buildWhen: (prev, curr) =>
+              prev.response != curr.response || prev.status != curr.status,
+
           builder: (context, state) {
             return ListView(
               padding: const EdgeInsets.all(28),
