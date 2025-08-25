@@ -10,10 +10,9 @@ class ForgotPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(32),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: SafeArea(
+        child: ListView(
+          padding: const EdgeInsets.all(28),
           children: const [ForgotHeader(), SizedBox(height: 40), ForgotForm()],
         ),
       ),
