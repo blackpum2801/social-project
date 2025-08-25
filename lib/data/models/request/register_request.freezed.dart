@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$RegisterRequest {
 
- String get email; String get password; String get passwordConfirmation; String get name;
+ String get email; String get password;@JsonKey(name: "password_confirmation") String get passwordConfirmation; String get name;
 /// Create a copy of RegisterRequest
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $RegisterRequestCopyWith<$Res>  {
   factory $RegisterRequestCopyWith(RegisterRequest value, $Res Function(RegisterRequest) _then) = _$RegisterRequestCopyWithImpl;
 @useResult
 $Res call({
- String email, String password, String passwordConfirmation, String name
+ String email, String password,@JsonKey(name: "password_confirmation") String passwordConfirmation, String name
 });
 
 
@@ -153,7 +153,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String email,  String password,  String passwordConfirmation,  String name)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String email,  String password, @JsonKey(name: "password_confirmation")  String passwordConfirmation,  String name)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _RegisterRequest() when $default != null:
 return $default(_that.email,_that.password,_that.passwordConfirmation,_that.name);case _:
@@ -174,7 +174,7 @@ return $default(_that.email,_that.password,_that.passwordConfirmation,_that.name
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String email,  String password,  String passwordConfirmation,  String name)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String email,  String password, @JsonKey(name: "password_confirmation")  String passwordConfirmation,  String name)  $default,) {final _that = this;
 switch (_that) {
 case _RegisterRequest():
 return $default(_that.email,_that.password,_that.passwordConfirmation,_that.name);}
@@ -191,7 +191,7 @@ return $default(_that.email,_that.password,_that.passwordConfirmation,_that.name
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String email,  String password,  String passwordConfirmation,  String name)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String email,  String password, @JsonKey(name: "password_confirmation")  String passwordConfirmation,  String name)?  $default,) {final _that = this;
 switch (_that) {
 case _RegisterRequest() when $default != null:
 return $default(_that.email,_that.password,_that.passwordConfirmation,_that.name);case _:
@@ -206,12 +206,12 @@ return $default(_that.email,_that.password,_that.passwordConfirmation,_that.name
 @JsonSerializable()
 
 class _RegisterRequest implements RegisterRequest {
-  const _RegisterRequest({required this.email, required this.password, required this.passwordConfirmation, required this.name});
+  const _RegisterRequest({required this.email, required this.password, @JsonKey(name: "password_confirmation") required this.passwordConfirmation, required this.name});
   factory _RegisterRequest.fromJson(Map<String, dynamic> json) => _$RegisterRequestFromJson(json);
 
 @override final  String email;
 @override final  String password;
-@override final  String passwordConfirmation;
+@override@JsonKey(name: "password_confirmation") final  String passwordConfirmation;
 @override final  String name;
 
 /// Create a copy of RegisterRequest
@@ -247,7 +247,7 @@ abstract mixin class _$RegisterRequestCopyWith<$Res> implements $RegisterRequest
   factory _$RegisterRequestCopyWith(_RegisterRequest value, $Res Function(_RegisterRequest) _then) = __$RegisterRequestCopyWithImpl;
 @override @useResult
 $Res call({
- String email, String password, String passwordConfirmation, String name
+ String email, String password,@JsonKey(name: "password_confirmation") String passwordConfirmation, String name
 });
 
 
