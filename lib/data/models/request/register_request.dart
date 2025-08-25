@@ -8,6 +8,7 @@ sealed class RegisterRequest with _$RegisterRequest {
   const factory RegisterRequest({
     required String email,
     required String password,
+    @JsonKey(name: "password_confirmation")
     required String passwordConfirmation,
     required String name,
   }) = _RegisterRequest;

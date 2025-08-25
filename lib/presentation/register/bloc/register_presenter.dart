@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social/core/errors/api_error_handler.dart';
 import 'package:social/data/models/request/register_request.dart';
 import 'package:social/domain/usecases/register_usecase/register_usecase.dart';
 import 'package:social/presentation/register/bloc/register_state.dart';
@@ -6,7 +7,7 @@ import 'package:social/presentation/register/bloc/register_state.dart';
 class RegisterPresenter extends Cubit<RegisterState> {
   final RegisterUsecase _registerUsecase;
 
-  RegisterPresenter(this._registerUsecase) : super(const RegisterState());
+  RegisterPresenter(this._registerUsecase) : super(RegisterState.initial());
 
   Future<void> register(RegisterRequest request) async {
     if (request.name.isEmpty ||
@@ -42,10 +43,11 @@ class RegisterPresenter extends Cubit<RegisterState> {
         ),
       );
     } catch (e) {
+      final apiError = ApiErrorHandler.handle(e);
       emit(
         state.copyWith(
           status: RegisterStatus.submissionFailure,
-          errorMessage: e.toString(),
+          errorMessage: apiError.message,
         ),
       );
     }
