@@ -4,7 +4,7 @@ import 'package:social/presentation/login/bloc/login_presenter.dart';
 
 class LoginModule {
   static Future<void> inject() async {
-    injector.registerFactory<LoginPresenter>(
+    injector.registerLazySingleton<LoginPresenter>(
       () => LoginPresenter(injector.get<LoginUsecase>()),
     );
   }

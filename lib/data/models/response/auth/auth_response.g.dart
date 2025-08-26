@@ -25,7 +25,7 @@ Map<String, dynamic> _$AuthResponseToJson(_AuthResponse instance) =>
     };
 
 _AuthContent _$AuthContentFromJson(Map<String, dynamic> json) => _AuthContent(
-  token: json['token'] as String,
+  token: json['token'] as String?,
   user: UserResponse.fromJson(json['user'] as Map<String, dynamic>),
   expiresIn: (json['expires_in'] as num).toInt(),
 );

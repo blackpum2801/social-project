@@ -305,7 +305,7 @@ $AuthContentCopyWith<$Res> get content {
 /// @nodoc
 mixin _$AuthContent {
 
- String get token; UserResponse get user;@JsonKey(name: 'expires_in') int get expiresIn;
+ String? get token; UserResponse get user;@JsonKey(name: 'expires_in') int get expiresIn;
 /// Create a copy of AuthContent
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -338,7 +338,7 @@ abstract mixin class $AuthContentCopyWith<$Res>  {
   factory $AuthContentCopyWith(AuthContent value, $Res Function(AuthContent) _then) = _$AuthContentCopyWithImpl;
 @useResult
 $Res call({
- String token, UserResponse user,@JsonKey(name: 'expires_in') int expiresIn
+ String? token, UserResponse user,@JsonKey(name: 'expires_in') int expiresIn
 });
 
 
@@ -355,10 +355,10 @@ class _$AuthContentCopyWithImpl<$Res>
 
 /// Create a copy of AuthContent
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? token = null,Object? user = null,Object? expiresIn = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? token = freezed,Object? user = null,Object? expiresIn = null,}) {
   return _then(_self.copyWith(
-token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
-as String,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
+token: freezed == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
+as String?,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
 as UserResponse,expiresIn: null == expiresIn ? _self.expiresIn : expiresIn // ignore: cast_nullable_to_non_nullable
 as int,
   ));
@@ -451,7 +451,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String token,  UserResponse user, @JsonKey(name: 'expires_in')  int expiresIn)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? token,  UserResponse user, @JsonKey(name: 'expires_in')  int expiresIn)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AuthContent() when $default != null:
 return $default(_that.token,_that.user,_that.expiresIn);case _:
@@ -472,7 +472,7 @@ return $default(_that.token,_that.user,_that.expiresIn);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String token,  UserResponse user, @JsonKey(name: 'expires_in')  int expiresIn)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? token,  UserResponse user, @JsonKey(name: 'expires_in')  int expiresIn)  $default,) {final _that = this;
 switch (_that) {
 case _AuthContent():
 return $default(_that.token,_that.user,_that.expiresIn);}
@@ -489,7 +489,7 @@ return $default(_that.token,_that.user,_that.expiresIn);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String token,  UserResponse user, @JsonKey(name: 'expires_in')  int expiresIn)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? token,  UserResponse user, @JsonKey(name: 'expires_in')  int expiresIn)?  $default,) {final _that = this;
 switch (_that) {
 case _AuthContent() when $default != null:
 return $default(_that.token,_that.user,_that.expiresIn);case _:
@@ -504,10 +504,10 @@ return $default(_that.token,_that.user,_that.expiresIn);case _:
 @JsonSerializable()
 
 class _AuthContent implements AuthContent {
-  const _AuthContent({required this.token, required this.user, @JsonKey(name: 'expires_in') required this.expiresIn});
+  const _AuthContent({this.token, required this.user, @JsonKey(name: 'expires_in') required this.expiresIn});
   factory _AuthContent.fromJson(Map<String, dynamic> json) => _$AuthContentFromJson(json);
 
-@override final  String token;
+@override final  String? token;
 @override final  UserResponse user;
 @override@JsonKey(name: 'expires_in') final  int expiresIn;
 
@@ -544,7 +544,7 @@ abstract mixin class _$AuthContentCopyWith<$Res> implements $AuthContentCopyWith
   factory _$AuthContentCopyWith(_AuthContent value, $Res Function(_AuthContent) _then) = __$AuthContentCopyWithImpl;
 @override @useResult
 $Res call({
- String token, UserResponse user,@JsonKey(name: 'expires_in') int expiresIn
+ String? token, UserResponse user,@JsonKey(name: 'expires_in') int expiresIn
 });
 
 
@@ -561,10 +561,10 @@ class __$AuthContentCopyWithImpl<$Res>
 
 /// Create a copy of AuthContent
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? token = null,Object? user = null,Object? expiresIn = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? token = freezed,Object? user = null,Object? expiresIn = null,}) {
   return _then(_AuthContent(
-token: null == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
-as String,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
+token: freezed == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
+as String?,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
 as UserResponse,expiresIn: null == expiresIn ? _self.expiresIn : expiresIn // ignore: cast_nullable_to_non_nullable
 as int,
   ));
