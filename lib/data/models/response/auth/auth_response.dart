@@ -19,7 +19,7 @@ sealed class AuthResponse with _$AuthResponse {
 @freezed
 sealed class AuthContent with _$AuthContent {
   const factory AuthContent({
-    required String token,
+    String? token,
     required UserResponse user,
     @JsonKey(name: 'expires_in') required int expiresIn,
   }) = _AuthContent;
