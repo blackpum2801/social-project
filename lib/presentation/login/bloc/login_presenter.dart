@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social/core/errors/api_error_handler.dart';
+import 'package:social/core/injector/injector.dart';
+import 'package:social/core/services/local_storage_service.dart';
 import 'package:social/data/models/request/login/login_request.dart';
 import 'package:social/domain/usecases/register_usecase/login_usecase.dart';
 import 'package:social/presentation/login/bloc/login_state.dart';
@@ -20,6 +22,10 @@ class LoginPresenter extends Cubit<LoginState> {
     emit(state.copyWith(status: LoginStatus.submissionInProgress));
     try {
       final response = await _loginUsecase.run(request);
+      final token = response.content.token;
+      if (token != null) {
+        injector.get<LocalStorageService>().saveToken(token);
+      }
       emit(
         state.copyWith(
           status: LoginStatus.submissionSuccess,

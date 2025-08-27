@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social/core/injector/injector.dart';
 import 'package:social/core/routes/app_router.dart';
-import 'package:social/presentation/login/bloc/login_presenter.dart';
-import 'package:social/presentation/login/bloc/login_state.dart';
+import 'package:social/presentation/profile/bloc/profile_presenter.dart';
+import 'package:social/presentation/profile/bloc/profile_state.dart';
 import 'package:social/presentation/profile/widgets/profile_card.dart';
 import 'package:social/presentation/profile/widgets/profile_desc.dart';
 import 'package:social/presentation/profile/widgets/profile_highlight.dart';
@@ -19,18 +19,36 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final _presenter = injector.get<LoginPresenter>();
+  final _presenter = injector.get<ProfilePresenter>();
+  @override
+  void initState() {
+    _presenter.getProfile();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginPresenter, LoginState>(
+    return BlocConsumer<ProfilePresenter, ProfileState>(
       bloc: _presenter,
       buildWhen: (previous, current) =>
           previous.response != current.response ||
           previous.status != current.status,
-      listener: (context, state) {},
+      listenWhen: (previous, current) =>
+          previous.status != current.status &&
+          current.status == ProfileStatus.submissionFailure,
+      listener: (context, state) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(state.errorMessage ?? "Có lỗi xảy ra")),
+        );
+      },
       builder: (context, state) {
-        final user = state.response?.content.user;
+        final user = state.response?.content;
+        if (state.status == ProfileStatus.submissionInProgress ||
+            state.status == ProfileStatus.initial) {
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
+        }
 
         return Scaffold(
           backgroundColor: Colors.white,
@@ -43,7 +61,9 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             centerTitle: true,
             title: Text(
-              user!.nickName ?? '',
+              user?.nickName?.isNotEmpty == true
+                  ? user!.nickName!
+                  : (user?.name ?? ''),
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 18,
@@ -81,8 +101,8 @@ class _ProfilePageState extends State<ProfilePage> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  ProfileCard(),
-                  ProfileDesc(),
+                  ProfileCard(presenter: _presenter),
+                  ProfileDesc(presenter: _presenter),
                   ProfileHighlights(),
                   ProfileTabs(),
                 ],

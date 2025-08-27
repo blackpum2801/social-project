@@ -12,7 +12,7 @@ _AuthResponse _$AuthResponseFromJson(Map<String, dynamic> json) =>
           .map((e) => e as String)
           .toList(),
       statusCode: (json['status_code'] as num).toInt(),
-      status: json['status'] as bool,
+      status: json['status'] as bool?,
       content: AuthContent.fromJson(json['content'] as Map<String, dynamic>),
     );
 
@@ -27,7 +27,7 @@ Map<String, dynamic> _$AuthResponseToJson(_AuthResponse instance) =>
 _AuthContent _$AuthContentFromJson(Map<String, dynamic> json) => _AuthContent(
   token: json['token'] as String?,
   user: UserResponse.fromJson(json['user'] as Map<String, dynamic>),
-  expiresIn: (json['expires_in'] as num).toInt(),
+  expiresIn: (json['expires_in'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$AuthContentToJson(_AuthContent instance) =>

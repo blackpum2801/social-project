@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AuthResponse {
 
- List<String> get message;@JsonKey(name: 'status_code') int get statusCode; bool get status; AuthContent get content;
+ List<String> get message;@JsonKey(name: 'status_code') int get statusCode; bool? get status; AuthContent get content;
 /// Create a copy of AuthResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $AuthResponseCopyWith<$Res>  {
   factory $AuthResponseCopyWith(AuthResponse value, $Res Function(AuthResponse) _then) = _$AuthResponseCopyWithImpl;
 @useResult
 $Res call({
- List<String> message,@JsonKey(name: 'status_code') int statusCode, bool status, AuthContent content
+ List<String> message,@JsonKey(name: 'status_code') int statusCode, bool? status, AuthContent content
 });
 
 
@@ -65,12 +65,12 @@ class _$AuthResponseCopyWithImpl<$Res>
 
 /// Create a copy of AuthResponse
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? message = null,Object? statusCode = null,Object? status = null,Object? content = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? message = null,Object? statusCode = null,Object? status = freezed,Object? content = null,}) {
   return _then(_self.copyWith(
 message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as List<String>,statusCode: null == statusCode ? _self.statusCode : statusCode // ignore: cast_nullable_to_non_nullable
-as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as bool,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
+as int,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as bool?,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as AuthContent,
   ));
 }
@@ -162,7 +162,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> message, @JsonKey(name: 'status_code')  int statusCode,  bool status,  AuthContent content)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> message, @JsonKey(name: 'status_code')  int statusCode,  bool? status,  AuthContent content)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AuthResponse() when $default != null:
 return $default(_that.message,_that.statusCode,_that.status,_that.content);case _:
@@ -183,7 +183,7 @@ return $default(_that.message,_that.statusCode,_that.status,_that.content);case 
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> message, @JsonKey(name: 'status_code')  int statusCode,  bool status,  AuthContent content)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> message, @JsonKey(name: 'status_code')  int statusCode,  bool? status,  AuthContent content)  $default,) {final _that = this;
 switch (_that) {
 case _AuthResponse():
 return $default(_that.message,_that.statusCode,_that.status,_that.content);}
@@ -200,7 +200,7 @@ return $default(_that.message,_that.statusCode,_that.status,_that.content);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> message, @JsonKey(name: 'status_code')  int statusCode,  bool status,  AuthContent content)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> message, @JsonKey(name: 'status_code')  int statusCode,  bool? status,  AuthContent content)?  $default,) {final _that = this;
 switch (_that) {
 case _AuthResponse() when $default != null:
 return $default(_that.message,_that.statusCode,_that.status,_that.content);case _:
@@ -215,7 +215,7 @@ return $default(_that.message,_that.statusCode,_that.status,_that.content);case 
 @JsonSerializable()
 
 class _AuthResponse implements AuthResponse {
-  const _AuthResponse({required final  List<String> message, @JsonKey(name: 'status_code') required this.statusCode, required this.status, required this.content}): _message = message;
+  const _AuthResponse({required final  List<String> message, @JsonKey(name: 'status_code') required this.statusCode, this.status, required this.content}): _message = message;
   factory _AuthResponse.fromJson(Map<String, dynamic> json) => _$AuthResponseFromJson(json);
 
  final  List<String> _message;
@@ -226,7 +226,7 @@ class _AuthResponse implements AuthResponse {
 }
 
 @override@JsonKey(name: 'status_code') final  int statusCode;
-@override final  bool status;
+@override final  bool? status;
 @override final  AuthContent content;
 
 /// Create a copy of AuthResponse
@@ -262,7 +262,7 @@ abstract mixin class _$AuthResponseCopyWith<$Res> implements $AuthResponseCopyWi
   factory _$AuthResponseCopyWith(_AuthResponse value, $Res Function(_AuthResponse) _then) = __$AuthResponseCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> message,@JsonKey(name: 'status_code') int statusCode, bool status, AuthContent content
+ List<String> message,@JsonKey(name: 'status_code') int statusCode, bool? status, AuthContent content
 });
 
 
@@ -279,12 +279,12 @@ class __$AuthResponseCopyWithImpl<$Res>
 
 /// Create a copy of AuthResponse
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? message = null,Object? statusCode = null,Object? status = null,Object? content = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? message = null,Object? statusCode = null,Object? status = freezed,Object? content = null,}) {
   return _then(_AuthResponse(
 message: null == message ? _self._message : message // ignore: cast_nullable_to_non_nullable
 as List<String>,statusCode: null == statusCode ? _self.statusCode : statusCode // ignore: cast_nullable_to_non_nullable
-as int,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as bool,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
+as int,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
+as bool?,content: null == content ? _self.content : content // ignore: cast_nullable_to_non_nullable
 as AuthContent,
   ));
 }
@@ -305,7 +305,7 @@ $AuthContentCopyWith<$Res> get content {
 /// @nodoc
 mixin _$AuthContent {
 
- String? get token; UserResponse get user;@JsonKey(name: 'expires_in') int get expiresIn;
+ String? get token; UserResponse get user;@JsonKey(name: 'expires_in') int? get expiresIn;
 /// Create a copy of AuthContent
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -338,7 +338,7 @@ abstract mixin class $AuthContentCopyWith<$Res>  {
   factory $AuthContentCopyWith(AuthContent value, $Res Function(AuthContent) _then) = _$AuthContentCopyWithImpl;
 @useResult
 $Res call({
- String? token, UserResponse user,@JsonKey(name: 'expires_in') int expiresIn
+ String? token, UserResponse user,@JsonKey(name: 'expires_in') int? expiresIn
 });
 
 
@@ -355,12 +355,12 @@ class _$AuthContentCopyWithImpl<$Res>
 
 /// Create a copy of AuthContent
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? token = freezed,Object? user = null,Object? expiresIn = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? token = freezed,Object? user = null,Object? expiresIn = freezed,}) {
   return _then(_self.copyWith(
 token: freezed == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String?,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
-as UserResponse,expiresIn: null == expiresIn ? _self.expiresIn : expiresIn // ignore: cast_nullable_to_non_nullable
-as int,
+as UserResponse,expiresIn: freezed == expiresIn ? _self.expiresIn : expiresIn // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 /// Create a copy of AuthContent
@@ -451,7 +451,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? token,  UserResponse user, @JsonKey(name: 'expires_in')  int expiresIn)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? token,  UserResponse user, @JsonKey(name: 'expires_in')  int? expiresIn)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AuthContent() when $default != null:
 return $default(_that.token,_that.user,_that.expiresIn);case _:
@@ -472,7 +472,7 @@ return $default(_that.token,_that.user,_that.expiresIn);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? token,  UserResponse user, @JsonKey(name: 'expires_in')  int expiresIn)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? token,  UserResponse user, @JsonKey(name: 'expires_in')  int? expiresIn)  $default,) {final _that = this;
 switch (_that) {
 case _AuthContent():
 return $default(_that.token,_that.user,_that.expiresIn);}
@@ -489,7 +489,7 @@ return $default(_that.token,_that.user,_that.expiresIn);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? token,  UserResponse user, @JsonKey(name: 'expires_in')  int expiresIn)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? token,  UserResponse user, @JsonKey(name: 'expires_in')  int? expiresIn)?  $default,) {final _that = this;
 switch (_that) {
 case _AuthContent() when $default != null:
 return $default(_that.token,_that.user,_that.expiresIn);case _:
@@ -504,12 +504,12 @@ return $default(_that.token,_that.user,_that.expiresIn);case _:
 @JsonSerializable()
 
 class _AuthContent implements AuthContent {
-  const _AuthContent({this.token, required this.user, @JsonKey(name: 'expires_in') required this.expiresIn});
+  const _AuthContent({this.token, required this.user, @JsonKey(name: 'expires_in') this.expiresIn});
   factory _AuthContent.fromJson(Map<String, dynamic> json) => _$AuthContentFromJson(json);
 
 @override final  String? token;
 @override final  UserResponse user;
-@override@JsonKey(name: 'expires_in') final  int expiresIn;
+@override@JsonKey(name: 'expires_in') final  int? expiresIn;
 
 /// Create a copy of AuthContent
 /// with the given fields replaced by the non-null parameter values.
@@ -544,7 +544,7 @@ abstract mixin class _$AuthContentCopyWith<$Res> implements $AuthContentCopyWith
   factory _$AuthContentCopyWith(_AuthContent value, $Res Function(_AuthContent) _then) = __$AuthContentCopyWithImpl;
 @override @useResult
 $Res call({
- String? token, UserResponse user,@JsonKey(name: 'expires_in') int expiresIn
+ String? token, UserResponse user,@JsonKey(name: 'expires_in') int? expiresIn
 });
 
 
@@ -561,12 +561,12 @@ class __$AuthContentCopyWithImpl<$Res>
 
 /// Create a copy of AuthContent
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? token = freezed,Object? user = null,Object? expiresIn = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? token = freezed,Object? user = null,Object? expiresIn = freezed,}) {
   return _then(_AuthContent(
 token: freezed == token ? _self.token : token // ignore: cast_nullable_to_non_nullable
 as String?,user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
-as UserResponse,expiresIn: null == expiresIn ? _self.expiresIn : expiresIn // ignore: cast_nullable_to_non_nullable
-as int,
+as UserResponse,expiresIn: freezed == expiresIn ? _self.expiresIn : expiresIn // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 

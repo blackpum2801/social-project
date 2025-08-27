@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social/core/injector/app_modules.dart' show AppModules;
 import 'package:social/core/routes/app_router.dart';
 import 'package:social/presentation/login/bloc/login_module.dart';
+import 'package:social/presentation/profile/bloc/profile_module.dart';
 import 'package:social/presentation/register/bloc/register_module.dart';
 
 void main() async {
@@ -32,5 +33,6 @@ class DependencyManager {
     await AppModules.inject();
     await RegisterModule.inject();
     await LoginModule.inject();
+    await ProfileModule.inject();
   }
 }

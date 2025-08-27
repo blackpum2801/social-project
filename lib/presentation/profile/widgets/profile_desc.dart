@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social/core/injector/injector.dart';
-import 'package:social/presentation/login/bloc/login_presenter.dart';
-import 'package:social/presentation/login/bloc/login_state.dart';
+import 'package:social/presentation/profile/bloc/profile_presenter.dart';
+import 'package:social/presentation/profile/bloc/profile_state.dart';
 
 class ProfileDesc extends StatelessWidget {
-  ProfileDesc({super.key});
-  final _presenter = injector.get<LoginPresenter>();
+  final ProfilePresenter presenter;
+  const ProfileDesc({super.key, required this.presenter});
 
   final stats = const [
     {"number": "2.7K", "label": "Bài viết", "color": Colors.black},
@@ -17,10 +16,10 @@ class ProfileDesc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginPresenter, LoginState>(
-      bloc: _presenter,
+    return BlocBuilder<ProfilePresenter, ProfileState>(
+      bloc: presenter,
       builder: (context, state) {
-        final user = state.response!.content.user;
+        final user = state.response?.content;
         return Padding(
           padding: const EdgeInsets.only(left: 16, right: 12),
           child: Column(
@@ -28,11 +27,11 @@ class ProfileDesc extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                user.name,
+                user?.name ?? '',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               Text(
-                user.intro ?? "Chưa có mô tả",
+                user?.intro ?? "Chưa có mô tả",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,

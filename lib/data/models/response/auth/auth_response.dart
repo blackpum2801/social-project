@@ -8,7 +8,7 @@ sealed class AuthResponse with _$AuthResponse {
   const factory AuthResponse({
     required List<String> message,
     @JsonKey(name: 'status_code') required int statusCode,
-    required bool status,
+    bool? status,
     required AuthContent content,
   }) = _AuthResponse;
 
@@ -21,7 +21,7 @@ sealed class AuthContent with _$AuthContent {
   const factory AuthContent({
     String? token,
     required UserResponse user,
-    @JsonKey(name: 'expires_in') required int expiresIn,
+    @JsonKey(name: 'expires_in') int? expiresIn,
   }) = _AuthContent;
 
   factory AuthContent.fromJson(Map<String, dynamic> json) =>
