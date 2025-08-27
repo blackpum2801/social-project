@@ -2,15 +2,23 @@ import 'package:dio/dio.dart';
 import 'package:social/core/constants/api_config.dart';
 import 'package:social/core/injector/injector.dart';
 import 'package:social/core/services/api_services.dart';
+import 'package:social/core/services/local_storage_service.dart';
 import 'package:social/data/repo_impl/login_repository_impl.dart';
+import 'package:social/data/repo_impl/profile_repository_impl.dart';
 import 'package:social/data/repo_impl/register_repository_impl.dart';
 import 'package:social/domain/repo/login_repository.dart';
+import 'package:social/domain/repo/profile_repository.dart';
 import 'package:social/domain/repo/register_repository.dart';
 import 'package:social/domain/usecases/register_usecase/login_usecase.dart';
+import 'package:social/domain/usecases/register_usecase/profile_usecase.dart';
 import 'package:social/domain/usecases/register_usecase/register_usecase.dart';
 
 class AppModules {
   static Future<void> inject() async {
+    // local_storage_token
+    injector.registerLazySingleton<LocalStorageService>(
+      () => LocalStorageService(),
+    );
     injector.registerLazySingleton<ApiServices>(
       () => ApiServices(injector.get<Dio>()),
     );
@@ -24,6 +32,11 @@ class AppModules {
     injector.registerLazySingleton<LoginRepository>(
       () => LoginRepositoryImpl(injector.get<ApiServices>()),
     );
+    // profile
+    injector.registerLazySingleton<ProfileUsecase>(() => ProfileUsecase());
+    injector.registerLazySingleton<ProfileRepository>(
+      () => ProfileRepositoryImpl(injector.get<ApiServices>()),
+    );
     injector.registerLazySingleton<Dio>(() {
       final dio = Dio();
       dio.options.baseUrl = ApiConfig.baseUrl;
@@ -34,6 +47,18 @@ class AppModules {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
       };
+      dio.interceptors.add(
+        InterceptorsWrapper(
+          onRequest: (options, handler) async {
+            final token =
+                await injector.get<LocalStorageService>().getToken() ?? '';
+            if (token.isNotEmpty) {
+              options.headers['Authorization'] = 'Bearer $token';
+            }
+            return handler.next(options);
+          },
+        ),
+      );
       dio.interceptors.add(
         LogInterceptor(
           request: true,

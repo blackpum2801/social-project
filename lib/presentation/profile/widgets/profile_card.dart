@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social/core/injector/injector.dart';
-import 'package:social/presentation/login/bloc/login_presenter.dart';
-import 'package:social/presentation/login/bloc/login_state.dart';
+import 'package:social/presentation/profile/bloc/profile_presenter.dart';
+import 'package:social/presentation/profile/bloc/profile_state.dart';
 
 class ProfileCard extends StatelessWidget {
-  ProfileCard({super.key});
-  final _presenter = injector.get<LoginPresenter>();
+  final ProfilePresenter presenter;
+
+  const ProfileCard({super.key, required this.presenter});
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginPresenter, LoginState>(
-      bloc: _presenter,
+    return BlocBuilder<ProfilePresenter, ProfileState>(
+      bloc: presenter,
       builder: (context, state) {
-        final user = state.response!.content.user;
+        final user = state.response?.content;
         return SizedBox(
           height: 260,
           child: Stack(
@@ -23,7 +23,7 @@ class ProfileCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: NetworkImage(
-                      user.banner ??
+                      user?.banner ??
                           'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
                     ),
                     fit: BoxFit.cover,
@@ -112,7 +112,7 @@ class ProfileCard extends StatelessWidget {
                       child: CircleAvatar(
                         radius: 66,
                         backgroundImage: NetworkImage(
-                          user.avatar ??
+                          user?.avatar ??
                               'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
                         ),
                         backgroundColor: Colors.grey[300],

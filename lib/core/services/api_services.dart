@@ -4,6 +4,7 @@ import 'package:social/core/constants/api_config.dart';
 import 'package:social/data/models/request/login/login_request.dart';
 import 'package:social/data/models/request/register/register_request.dart';
 import 'package:social/data/models/response/auth/auth_response.dart';
+import 'package:social/data/models/response/profile/profile_response.dart';
 part 'api_services.g.dart';
 
 @RestApi()
@@ -15,4 +16,7 @@ abstract class ApiServices {
   });
   @POST(ApiConfig.login)
   Future<AuthResponse> callAPILogin({@Body() required LoginRequest request});
+
+  @GET(ApiConfig.me)
+  Future<ProfileResponse> callAPIProfile();
 }
