@@ -10,7 +10,7 @@ sealed class UserResponse with _$UserResponse {
     required String name,
     required String email,
     @JsonKey(name: "phone_number") String? phoneNumber,
-    String? avatar,
+    @JsonKey(name: "user_avatar") String? avatar,
     @JsonKey(name: "nick_name") String? nickName,
     String? banner,
     @JsonKey(name: "date_of_birth") String? dateOfBirth,

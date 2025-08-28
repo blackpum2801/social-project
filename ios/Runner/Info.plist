@@ -45,5 +45,11 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Ứng dụng cần quyền để chọn ảnh từ thư viện.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Ứng dụng cần quyền để chụp ảnh bằng camera.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Ứng dụng cần quyền để lưu ảnh vào thư viện.</string>
 </dict>
 </plist>

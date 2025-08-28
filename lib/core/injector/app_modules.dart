@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' hide Headers;
 import 'package:social/core/constants/api_config.dart';
 import 'package:social/core/injector/injector.dart';
 import 'package:social/core/services/api_services.dart';

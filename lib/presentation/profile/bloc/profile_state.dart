@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:social/data/models/response/auth/auth_response.dart';
 import 'package:social/data/models/response/profile/profile_response.dart';
 part 'profile_state.freezed.dart';
 
