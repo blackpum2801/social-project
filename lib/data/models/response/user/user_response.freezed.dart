@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserResponse {
 
- int get id; String get name; String get email;@JsonKey(name: "phone_number") String? get phoneNumber; String? get avatar;@JsonKey(name: "nick_name") String? get nickName; String? get banner;@JsonKey(name: "date_of_birth") String? get dateOfBirth; String? get gender; String? get intro;
+ int get id; String get name; String get email;@JsonKey(name: "phone_number") String? get phoneNumber;@JsonKey(name: "user_avatar") String? get avatar;@JsonKey(name: "nick_name") String? get nickName; String? get banner;@JsonKey(name: "date_of_birth") String? get dateOfBirth; String? get gender; String? get intro;
 /// Create a copy of UserResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $UserResponseCopyWith<$Res>  {
   factory $UserResponseCopyWith(UserResponse value, $Res Function(UserResponse) _then) = _$UserResponseCopyWithImpl;
 @useResult
 $Res call({
- int id, String name, String email,@JsonKey(name: "phone_number") String? phoneNumber, String? avatar,@JsonKey(name: "nick_name") String? nickName, String? banner,@JsonKey(name: "date_of_birth") String? dateOfBirth, String? gender, String? intro
+ int id, String name, String email,@JsonKey(name: "phone_number") String? phoneNumber,@JsonKey(name: "user_avatar") String? avatar,@JsonKey(name: "nick_name") String? nickName, String? banner,@JsonKey(name: "date_of_birth") String? dateOfBirth, String? gender, String? intro
 });
 
 
@@ -159,7 +159,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String name,  String email, @JsonKey(name: "phone_number")  String? phoneNumber,  String? avatar, @JsonKey(name: "nick_name")  String? nickName,  String? banner, @JsonKey(name: "date_of_birth")  String? dateOfBirth,  String? gender,  String? intro)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String name,  String email, @JsonKey(name: "phone_number")  String? phoneNumber, @JsonKey(name: "user_avatar")  String? avatar, @JsonKey(name: "nick_name")  String? nickName,  String? banner, @JsonKey(name: "date_of_birth")  String? dateOfBirth,  String? gender,  String? intro)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UserResponse() when $default != null:
 return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.avatar,_that.nickName,_that.banner,_that.dateOfBirth,_that.gender,_that.intro);case _:
@@ -180,7 +180,7 @@ return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.avatar,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String name,  String email, @JsonKey(name: "phone_number")  String? phoneNumber,  String? avatar, @JsonKey(name: "nick_name")  String? nickName,  String? banner, @JsonKey(name: "date_of_birth")  String? dateOfBirth,  String? gender,  String? intro)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String name,  String email, @JsonKey(name: "phone_number")  String? phoneNumber, @JsonKey(name: "user_avatar")  String? avatar, @JsonKey(name: "nick_name")  String? nickName,  String? banner, @JsonKey(name: "date_of_birth")  String? dateOfBirth,  String? gender,  String? intro)  $default,) {final _that = this;
 switch (_that) {
 case _UserResponse():
 return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.avatar,_that.nickName,_that.banner,_that.dateOfBirth,_that.gender,_that.intro);}
@@ -197,7 +197,7 @@ return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.avatar,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String name,  String email, @JsonKey(name: "phone_number")  String? phoneNumber,  String? avatar, @JsonKey(name: "nick_name")  String? nickName,  String? banner, @JsonKey(name: "date_of_birth")  String? dateOfBirth,  String? gender,  String? intro)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String name,  String email, @JsonKey(name: "phone_number")  String? phoneNumber, @JsonKey(name: "user_avatar")  String? avatar, @JsonKey(name: "nick_name")  String? nickName,  String? banner, @JsonKey(name: "date_of_birth")  String? dateOfBirth,  String? gender,  String? intro)?  $default,) {final _that = this;
 switch (_that) {
 case _UserResponse() when $default != null:
 return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.avatar,_that.nickName,_that.banner,_that.dateOfBirth,_that.gender,_that.intro);case _:
@@ -212,14 +212,14 @@ return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.avatar,_
 @JsonSerializable()
 
 class _UserResponse implements UserResponse {
-  const _UserResponse({required this.id, required this.name, required this.email, @JsonKey(name: "phone_number") this.phoneNumber, this.avatar, @JsonKey(name: "nick_name") this.nickName, this.banner, @JsonKey(name: "date_of_birth") this.dateOfBirth, this.gender, this.intro});
+  const _UserResponse({required this.id, required this.name, required this.email, @JsonKey(name: "phone_number") this.phoneNumber, @JsonKey(name: "user_avatar") this.avatar, @JsonKey(name: "nick_name") this.nickName, this.banner, @JsonKey(name: "date_of_birth") this.dateOfBirth, this.gender, this.intro});
   factory _UserResponse.fromJson(Map<String, dynamic> json) => _$UserResponseFromJson(json);
 
 @override final  int id;
 @override final  String name;
 @override final  String email;
 @override@JsonKey(name: "phone_number") final  String? phoneNumber;
-@override final  String? avatar;
+@override@JsonKey(name: "user_avatar") final  String? avatar;
 @override@JsonKey(name: "nick_name") final  String? nickName;
 @override final  String? banner;
 @override@JsonKey(name: "date_of_birth") final  String? dateOfBirth;
@@ -259,7 +259,7 @@ abstract mixin class _$UserResponseCopyWith<$Res> implements $UserResponseCopyWi
   factory _$UserResponseCopyWith(_UserResponse value, $Res Function(_UserResponse) _then) = __$UserResponseCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String name, String email,@JsonKey(name: "phone_number") String? phoneNumber, String? avatar,@JsonKey(name: "nick_name") String? nickName, String? banner,@JsonKey(name: "date_of_birth") String? dateOfBirth, String? gender, String? intro
+ int id, String name, String email,@JsonKey(name: "phone_number") String? phoneNumber,@JsonKey(name: "user_avatar") String? avatar,@JsonKey(name: "nick_name") String? nickName, String? banner,@JsonKey(name: "date_of_birth") String? dateOfBirth, String? gender, String? intro
 });
 
 

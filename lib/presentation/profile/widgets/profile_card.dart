@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social/presentation/profile/bloc/profile_presenter.dart';
 import 'package:social/presentation/profile/bloc/profile_state.dart';
+import 'package:social/presentation/profile/widgets/profile_bottom_sheet.dart';
 
 class ProfileCard extends StatelessWidget {
   final ProfilePresenter presenter;
@@ -27,6 +28,27 @@ class ProfileCard extends StatelessWidget {
                           'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
                     ),
                     fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 16,
+                right: 16,
+                child: Container(
+                  width: 36,
+                  height: 36,
+                  decoration: BoxDecoration(
+                    color: Colors.white.withValues(alpha: 0.9),
+                    shape: BoxShape.circle,
+                  ),
+                  child: IconButton(
+                    padding: EdgeInsets.zero,
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.camera_alt,
+                      size: 18,
+                      color: Colors.grey[700],
+                    ),
                   ),
                 ),
               ),
@@ -120,16 +142,49 @@ class ProfileCard extends StatelessWidget {
                     ),
                     Positioned(
                       bottom: 2,
-                      right: 2,
+                      right: 0,
                       child: Container(
-                        width: 36,
-                        height: 36,
+                        width: 42,
+                        height: 42,
                         decoration: BoxDecoration(
-                          color: Colors.green,
+                          color: Colors.grey[100],
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.white, width: 2),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.15),
+                              blurRadius: 6,
+                              offset: Offset(0, 2),
+                            ),
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.08),
+                              blurRadius: 12,
+                              offset: Offset(0, 4),
+                            ),
+                          ],
                         ),
-                        child: Icon(Icons.check, size: 24, color: Colors.white),
+                        child: IconButton(
+                          padding: EdgeInsets.zero,
+                          onPressed: () {
+                            showAppBottomSheet(
+                              context: context,
+                              actions: [
+                                ProfileBottomSheetAction(
+                                  icon: Icons.photo,
+                                  title: "Chọn ảnh từ thư viện",
+                                  onTap: () {
+                                    presenter.updateAvatar();
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                          icon: Icon(
+                            Icons.camera_alt,
+                            size: 22,
+                            color: Colors.grey[700],
+                          ),
+                        ),
                       ),
                     ),
                   ],
