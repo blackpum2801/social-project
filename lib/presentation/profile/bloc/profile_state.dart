@@ -12,7 +12,7 @@ enum ProfileStatus {
 @freezed
 sealed class ProfileState with _$ProfileState {
   const factory ProfileState({
-    @Default(ProfileStatus.submissionInProgress) ProfileStatus status,
+    @Default(ProfileStatus.initial) ProfileStatus status,
     ProfileResponse? response,
     String? errorMessage,
   }) = _ProfileState;

@@ -1,12 +1,13 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:social/core/routes/app_router.dart';
 import 'package:social/presentation/profile/bloc/profile_presenter.dart';
 import 'package:social/presentation/profile/bloc/profile_state.dart';
 import 'package:social/presentation/profile/widgets/profile_bottom_sheet.dart';
 
 class ProfileCard extends StatelessWidget {
   final ProfilePresenter presenter;
-
   const ProfileCard({super.key, required this.presenter});
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,20 @@ class ProfileCard extends StatelessWidget {
                   ),
                   child: IconButton(
                     padding: EdgeInsets.zero,
-                    onPressed: () {},
+                    onPressed: () {
+                      showAppBottomSheet(
+                        context: context,
+                        actions: [
+                          ProfileBottomSheetAction(
+                            icon: Icons.photo,
+                            title: "Chọn ảnh từ thư viện",
+                            onTap: () {
+                              presenter.updateBanner();
+                            },
+                          ),
+                        ],
+                      );
+                    },
                     icon: Icon(
                       Icons.camera_alt,
                       size: 18,
@@ -72,7 +86,15 @@ class ProfileCard extends StatelessWidget {
                               child: SizedBox(
                                 height: 40,
                                 child: ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    if (state.response != null) {
+                                      context.router.push(
+                                        ProfileEditRoute(
+                                          profileResponse: state.response!,
+                                        ),
+                                      );
+                                    }
+                                  },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.grey[100],
                                     foregroundColor: Colors.black87,

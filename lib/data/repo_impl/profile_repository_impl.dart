@@ -18,4 +18,10 @@ class ProfileRepositoryImpl extends ProfileRepository {
     final res = await _apiServices.updateAvatarProfile(file: file);
     return res;
   }
+
+  @override
+  Future<ProfileResponse> updateBanner(File file) async {
+    final res = await _apiServices.updateBannerProfile(file: file);
+    return res;
+  }
 }

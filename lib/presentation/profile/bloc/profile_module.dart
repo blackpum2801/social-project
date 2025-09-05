@@ -1,5 +1,5 @@
 import 'package:social/core/injector/injector.dart';
-import 'package:social/domain/usecases/register_usecase/profile_usecase.dart';
+import 'package:social/domain/usecases/profile_usecase.dart';
 import 'package:social/presentation/profile/bloc/profile_presenter.dart';
 
 class ProfileModule {

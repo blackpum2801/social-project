@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ProfileResponse {
 
- List<String> get message;@JsonKey(name: 'status_code') int get statusCode; bool get status; UserResponse get content;@JsonKey(name: 'expires_in') int? get expiresIn;
+ List<String> get message;@JsonKey(name: 'status_code') int get statusCode; bool get status;@JsonKey(fromJson: _contentFromJson) UserResponse get content;@JsonKey(name: 'expires_in') int? get expiresIn;
 /// Create a copy of ProfileResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $ProfileResponseCopyWith<$Res>  {
   factory $ProfileResponseCopyWith(ProfileResponse value, $Res Function(ProfileResponse) _then) = _$ProfileResponseCopyWithImpl;
 @useResult
 $Res call({
- List<String> message,@JsonKey(name: 'status_code') int statusCode, bool status, UserResponse content,@JsonKey(name: 'expires_in') int? expiresIn
+ List<String> message,@JsonKey(name: 'status_code') int statusCode, bool status,@JsonKey(fromJson: _contentFromJson) UserResponse content,@JsonKey(name: 'expires_in') int? expiresIn
 });
 
 
@@ -163,7 +163,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> message, @JsonKey(name: 'status_code')  int statusCode,  bool status,  UserResponse content, @JsonKey(name: 'expires_in')  int? expiresIn)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<String> message, @JsonKey(name: 'status_code')  int statusCode,  bool status, @JsonKey(fromJson: _contentFromJson)  UserResponse content, @JsonKey(name: 'expires_in')  int? expiresIn)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _ProfileResponse() when $default != null:
 return $default(_that.message,_that.statusCode,_that.status,_that.content,_that.expiresIn);case _:
@@ -184,7 +184,7 @@ return $default(_that.message,_that.statusCode,_that.status,_that.content,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> message, @JsonKey(name: 'status_code')  int statusCode,  bool status,  UserResponse content, @JsonKey(name: 'expires_in')  int? expiresIn)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<String> message, @JsonKey(name: 'status_code')  int statusCode,  bool status, @JsonKey(fromJson: _contentFromJson)  UserResponse content, @JsonKey(name: 'expires_in')  int? expiresIn)  $default,) {final _that = this;
 switch (_that) {
 case _ProfileResponse():
 return $default(_that.message,_that.statusCode,_that.status,_that.content,_that.expiresIn);}
@@ -201,7 +201,7 @@ return $default(_that.message,_that.statusCode,_that.status,_that.content,_that.
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> message, @JsonKey(name: 'status_code')  int statusCode,  bool status,  UserResponse content, @JsonKey(name: 'expires_in')  int? expiresIn)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<String> message, @JsonKey(name: 'status_code')  int statusCode,  bool status, @JsonKey(fromJson: _contentFromJson)  UserResponse content, @JsonKey(name: 'expires_in')  int? expiresIn)?  $default,) {final _that = this;
 switch (_that) {
 case _ProfileResponse() when $default != null:
 return $default(_that.message,_that.statusCode,_that.status,_that.content,_that.expiresIn);case _:
@@ -216,7 +216,7 @@ return $default(_that.message,_that.statusCode,_that.status,_that.content,_that.
 @JsonSerializable()
 
 class _ProfileResponse implements ProfileResponse {
-  const _ProfileResponse({required final  List<String> message, @JsonKey(name: 'status_code') required this.statusCode, required this.status, required this.content, @JsonKey(name: 'expires_in') this.expiresIn}): _message = message;
+  const _ProfileResponse({required final  List<String> message, @JsonKey(name: 'status_code') required this.statusCode, required this.status, @JsonKey(fromJson: _contentFromJson) required this.content, @JsonKey(name: 'expires_in') this.expiresIn}): _message = message;
   factory _ProfileResponse.fromJson(Map<String, dynamic> json) => _$ProfileResponseFromJson(json);
 
  final  List<String> _message;
@@ -228,7 +228,7 @@ class _ProfileResponse implements ProfileResponse {
 
 @override@JsonKey(name: 'status_code') final  int statusCode;
 @override final  bool status;
-@override final  UserResponse content;
+@override@JsonKey(fromJson: _contentFromJson) final  UserResponse content;
 @override@JsonKey(name: 'expires_in') final  int? expiresIn;
 
 /// Create a copy of ProfileResponse
@@ -264,7 +264,7 @@ abstract mixin class _$ProfileResponseCopyWith<$Res> implements $ProfileResponse
   factory _$ProfileResponseCopyWith(_ProfileResponse value, $Res Function(_ProfileResponse) _then) = __$ProfileResponseCopyWithImpl;
 @override @useResult
 $Res call({
- List<String> message,@JsonKey(name: 'status_code') int statusCode, bool status, UserResponse content,@JsonKey(name: 'expires_in') int? expiresIn
+ List<String> message,@JsonKey(name: 'status_code') int statusCode, bool status,@JsonKey(fromJson: _contentFromJson) UserResponse content,@JsonKey(name: 'expires_in') int? expiresIn
 });
 
 
