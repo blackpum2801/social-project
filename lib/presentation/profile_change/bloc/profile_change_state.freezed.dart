@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'profile_state.dart';
+part of 'profile_change_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -12,20 +12,20 @@ part of 'profile_state.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
-mixin _$ProfileState {
+mixin _$ProfileChangeState {
 
- ProfileStatus get status; ProfileResponse? get response; String? get errorMessage;
-/// Create a copy of ProfileState
+ ProfileChangeStatus get status; ProfileResponse? get response; String? get errorMessage;
+/// Create a copy of ProfileChangeState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$ProfileStateCopyWith<ProfileState> get copyWith => _$ProfileStateCopyWithImpl<ProfileState>(this as ProfileState, _$identity);
+$ProfileChangeStateCopyWith<ProfileChangeState> get copyWith => _$ProfileChangeStateCopyWithImpl<ProfileChangeState>(this as ProfileChangeState, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileState&&(identical(other.status, status) || other.status == status)&&(identical(other.response, response) || other.response == response)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ProfileChangeState&&(identical(other.status, status) || other.status == status)&&(identical(other.response, response) || other.response == response)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
@@ -34,18 +34,18 @@ int get hashCode => Object.hash(runtimeType,status,response,errorMessage);
 
 @override
 String toString() {
-  return 'ProfileState(status: $status, response: $response, errorMessage: $errorMessage)';
+  return 'ProfileChangeState(status: $status, response: $response, errorMessage: $errorMessage)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $ProfileStateCopyWith<$Res>  {
-  factory $ProfileStateCopyWith(ProfileState value, $Res Function(ProfileState) _then) = _$ProfileStateCopyWithImpl;
+abstract mixin class $ProfileChangeStateCopyWith<$Res>  {
+  factory $ProfileChangeStateCopyWith(ProfileChangeState value, $Res Function(ProfileChangeState) _then) = _$ProfileChangeStateCopyWithImpl;
 @useResult
 $Res call({
- ProfileStatus status, ProfileResponse? response, String? errorMessage
+ ProfileChangeStatus status, ProfileResponse? response, String? errorMessage
 });
 
 
@@ -53,24 +53,24 @@ $ProfileResponseCopyWith<$Res>? get response;
 
 }
 /// @nodoc
-class _$ProfileStateCopyWithImpl<$Res>
-    implements $ProfileStateCopyWith<$Res> {
-  _$ProfileStateCopyWithImpl(this._self, this._then);
+class _$ProfileChangeStateCopyWithImpl<$Res>
+    implements $ProfileChangeStateCopyWith<$Res> {
+  _$ProfileChangeStateCopyWithImpl(this._self, this._then);
 
-  final ProfileState _self;
-  final $Res Function(ProfileState) _then;
+  final ProfileChangeState _self;
+  final $Res Function(ProfileChangeState) _then;
 
-/// Create a copy of ProfileState
+/// Create a copy of ProfileChangeState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? response = freezed,Object? errorMessage = freezed,}) {
   return _then(_self.copyWith(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as ProfileStatus,response: freezed == response ? _self.response : response // ignore: cast_nullable_to_non_nullable
+as ProfileChangeStatus,response: freezed == response ? _self.response : response // ignore: cast_nullable_to_non_nullable
 as ProfileResponse?,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
-/// Create a copy of ProfileState
+/// Create a copy of ProfileChangeState
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
@@ -86,8 +86,8 @@ $ProfileResponseCopyWith<$Res>? get response {
 }
 
 
-/// Adds pattern-matching-related methods to [ProfileState].
-extension ProfileStatePatterns on ProfileState {
+/// Adds pattern-matching-related methods to [ProfileChangeState].
+extension ProfileChangeStatePatterns on ProfileChangeState {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -100,10 +100,10 @@ extension ProfileStatePatterns on ProfileState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ProfileState value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _ProfileChangeState value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _ProfileState() when $default != null:
+case _ProfileChangeState() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -122,10 +122,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ProfileState value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _ProfileChangeState value)  $default,){
 final _that = this;
 switch (_that) {
-case _ProfileState():
+case _ProfileChangeState():
 return $default(_that);}
 }
 /// A variant of `map` that fallback to returning `null`.
@@ -140,10 +140,10 @@ return $default(_that);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ProfileState value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _ProfileChangeState value)?  $default,){
 final _that = this;
 switch (_that) {
-case _ProfileState() when $default != null:
+case _ProfileChangeState() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -161,9 +161,9 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( ProfileStatus status,  ProfileResponse? response,  String? errorMessage)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( ProfileChangeStatus status,  ProfileResponse? response,  String? errorMessage)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _ProfileState() when $default != null:
+case _ProfileChangeState() when $default != null:
 return $default(_that.status,_that.response,_that.errorMessage);case _:
   return orElse();
 
@@ -182,9 +182,9 @@ return $default(_that.status,_that.response,_that.errorMessage);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ProfileStatus status,  ProfileResponse? response,  String? errorMessage)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( ProfileChangeStatus status,  ProfileResponse? response,  String? errorMessage)  $default,) {final _that = this;
 switch (_that) {
-case _ProfileState():
+case _ProfileChangeState():
 return $default(_that.status,_that.response,_that.errorMessage);}
 }
 /// A variant of `when` that fallback to returning `null`
@@ -199,9 +199,9 @@ return $default(_that.status,_that.response,_that.errorMessage);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( ProfileStatus status,  ProfileResponse? response,  String? errorMessage)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( ProfileChangeStatus status,  ProfileResponse? response,  String? errorMessage)?  $default,) {final _that = this;
 switch (_that) {
-case _ProfileState() when $default != null:
+case _ProfileChangeState() when $default != null:
 return $default(_that.status,_that.response,_that.errorMessage);case _:
   return null;
 
@@ -213,25 +213,25 @@ return $default(_that.status,_that.response,_that.errorMessage);case _:
 /// @nodoc
 
 
-class _ProfileState implements ProfileState {
-  const _ProfileState({this.status = ProfileStatus.initial, this.response, this.errorMessage});
+class _ProfileChangeState implements ProfileChangeState {
+  const _ProfileChangeState({this.status = ProfileChangeStatus.initial, this.response, this.errorMessage});
   
 
-@override@JsonKey() final  ProfileStatus status;
+@override@JsonKey() final  ProfileChangeStatus status;
 @override final  ProfileResponse? response;
 @override final  String? errorMessage;
 
-/// Create a copy of ProfileState
+/// Create a copy of ProfileChangeState
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$ProfileStateCopyWith<_ProfileState> get copyWith => __$ProfileStateCopyWithImpl<_ProfileState>(this, _$identity);
+_$ProfileChangeStateCopyWith<_ProfileChangeState> get copyWith => __$ProfileChangeStateCopyWithImpl<_ProfileChangeState>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProfileState&&(identical(other.status, status) || other.status == status)&&(identical(other.response, response) || other.response == response)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProfileChangeState&&(identical(other.status, status) || other.status == status)&&(identical(other.response, response) || other.response == response)&&(identical(other.errorMessage, errorMessage) || other.errorMessage == errorMessage));
 }
 
 
@@ -240,18 +240,18 @@ int get hashCode => Object.hash(runtimeType,status,response,errorMessage);
 
 @override
 String toString() {
-  return 'ProfileState(status: $status, response: $response, errorMessage: $errorMessage)';
+  return 'ProfileChangeState(status: $status, response: $response, errorMessage: $errorMessage)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$ProfileStateCopyWith<$Res> implements $ProfileStateCopyWith<$Res> {
-  factory _$ProfileStateCopyWith(_ProfileState value, $Res Function(_ProfileState) _then) = __$ProfileStateCopyWithImpl;
+abstract mixin class _$ProfileChangeStateCopyWith<$Res> implements $ProfileChangeStateCopyWith<$Res> {
+  factory _$ProfileChangeStateCopyWith(_ProfileChangeState value, $Res Function(_ProfileChangeState) _then) = __$ProfileChangeStateCopyWithImpl;
 @override @useResult
 $Res call({
- ProfileStatus status, ProfileResponse? response, String? errorMessage
+ ProfileChangeStatus status, ProfileResponse? response, String? errorMessage
 });
 
 
@@ -259,25 +259,25 @@ $Res call({
 
 }
 /// @nodoc
-class __$ProfileStateCopyWithImpl<$Res>
-    implements _$ProfileStateCopyWith<$Res> {
-  __$ProfileStateCopyWithImpl(this._self, this._then);
+class __$ProfileChangeStateCopyWithImpl<$Res>
+    implements _$ProfileChangeStateCopyWith<$Res> {
+  __$ProfileChangeStateCopyWithImpl(this._self, this._then);
 
-  final _ProfileState _self;
-  final $Res Function(_ProfileState) _then;
+  final _ProfileChangeState _self;
+  final $Res Function(_ProfileChangeState) _then;
 
-/// Create a copy of ProfileState
+/// Create a copy of ProfileChangeState
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? status = null,Object? response = freezed,Object? errorMessage = freezed,}) {
-  return _then(_ProfileState(
+  return _then(_ProfileChangeState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as ProfileStatus,response: freezed == response ? _self.response : response // ignore: cast_nullable_to_non_nullable
+as ProfileChangeStatus,response: freezed == response ? _self.response : response // ignore: cast_nullable_to_non_nullable
 as ProfileResponse?,errorMessage: freezed == errorMessage ? _self.errorMessage : errorMessage // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
 
-/// Create a copy of ProfileState
+/// Create a copy of ProfileChangeState
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')

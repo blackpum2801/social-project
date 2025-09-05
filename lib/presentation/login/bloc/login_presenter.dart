@@ -3,7 +3,7 @@ import 'package:social/core/errors/api_error_handler.dart';
 import 'package:social/core/injector/injector.dart';
 import 'package:social/core/services/local_storage_service.dart';
 import 'package:social/data/models/request/login/login_request.dart';
-import 'package:social/domain/usecases/register_usecase/login_usecase.dart';
+import 'package:social/domain/usecases/login_usecase.dart';
 import 'package:social/presentation/login/bloc/login_state.dart';
 
 class LoginPresenter extends Cubit<LoginState> {

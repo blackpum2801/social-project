@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserResponse {
 
- int get id; String get name; String get email;@JsonKey(name: "phone_number") String? get phoneNumber;@JsonKey(name: "user_avatar") String? get avatar;@JsonKey(name: "nick_name") String? get nickName; String? get banner;@JsonKey(name: "date_of_birth") String? get dateOfBirth; String? get gender; String? get intro;
+ int get id; String get name; String get email;@JsonKey(name: "phone_number") String? get phoneNumber; String? get phone;@JsonKey(name: "user_avatar") String? get avatar;@JsonKey(name: "nick_name") String? get nickName; String? get banner;@JsonKey(name: "date_of_birth") String? get dateOfBirth; String? get gender; String? get intro;
 /// Create a copy of UserResponse
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $UserResponseCopyWith<UserResponse> get copyWith => _$UserResponseCopyWithImpl<U
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserResponse&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.nickName, nickName) || other.nickName == nickName)&&(identical(other.banner, banner) || other.banner == banner)&&(identical(other.dateOfBirth, dateOfBirth) || other.dateOfBirth == dateOfBirth)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.intro, intro) || other.intro == intro));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserResponse&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.nickName, nickName) || other.nickName == nickName)&&(identical(other.banner, banner) || other.banner == banner)&&(identical(other.dateOfBirth, dateOfBirth) || other.dateOfBirth == dateOfBirth)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.intro, intro) || other.intro == intro));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,email,phoneNumber,avatar,nickName,banner,dateOfBirth,gender,intro);
+int get hashCode => Object.hash(runtimeType,id,name,email,phoneNumber,phone,avatar,nickName,banner,dateOfBirth,gender,intro);
 
 @override
 String toString() {
-  return 'UserResponse(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, avatar: $avatar, nickName: $nickName, banner: $banner, dateOfBirth: $dateOfBirth, gender: $gender, intro: $intro)';
+  return 'UserResponse(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, phone: $phone, avatar: $avatar, nickName: $nickName, banner: $banner, dateOfBirth: $dateOfBirth, gender: $gender, intro: $intro)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $UserResponseCopyWith<$Res>  {
   factory $UserResponseCopyWith(UserResponse value, $Res Function(UserResponse) _then) = _$UserResponseCopyWithImpl;
 @useResult
 $Res call({
- int id, String name, String email,@JsonKey(name: "phone_number") String? phoneNumber,@JsonKey(name: "user_avatar") String? avatar,@JsonKey(name: "nick_name") String? nickName, String? banner,@JsonKey(name: "date_of_birth") String? dateOfBirth, String? gender, String? intro
+ int id, String name, String email,@JsonKey(name: "phone_number") String? phoneNumber, String? phone,@JsonKey(name: "user_avatar") String? avatar,@JsonKey(name: "nick_name") String? nickName, String? banner,@JsonKey(name: "date_of_birth") String? dateOfBirth, String? gender, String? intro
 });
 
 
@@ -65,12 +65,13 @@ class _$UserResponseCopyWithImpl<$Res>
 
 /// Create a copy of UserResponse
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? email = null,Object? phoneNumber = freezed,Object? avatar = freezed,Object? nickName = freezed,Object? banner = freezed,Object? dateOfBirth = freezed,Object? gender = freezed,Object? intro = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? email = null,Object? phoneNumber = freezed,Object? phone = freezed,Object? avatar = freezed,Object? nickName = freezed,Object? banner = freezed,Object? dateOfBirth = freezed,Object? gender = freezed,Object? intro = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,phoneNumber: freezed == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
+as String?,phone: freezed == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
 as String?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
 as String?,nickName: freezed == nickName ? _self.nickName : nickName // ignore: cast_nullable_to_non_nullable
 as String?,banner: freezed == banner ? _self.banner : banner // ignore: cast_nullable_to_non_nullable
@@ -159,10 +160,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String name,  String email, @JsonKey(name: "phone_number")  String? phoneNumber, @JsonKey(name: "user_avatar")  String? avatar, @JsonKey(name: "nick_name")  String? nickName,  String? banner, @JsonKey(name: "date_of_birth")  String? dateOfBirth,  String? gender,  String? intro)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int id,  String name,  String email, @JsonKey(name: "phone_number")  String? phoneNumber,  String? phone, @JsonKey(name: "user_avatar")  String? avatar, @JsonKey(name: "nick_name")  String? nickName,  String? banner, @JsonKey(name: "date_of_birth")  String? dateOfBirth,  String? gender,  String? intro)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UserResponse() when $default != null:
-return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.avatar,_that.nickName,_that.banner,_that.dateOfBirth,_that.gender,_that.intro);case _:
+return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.phone,_that.avatar,_that.nickName,_that.banner,_that.dateOfBirth,_that.gender,_that.intro);case _:
   return orElse();
 
 }
@@ -180,10 +181,10 @@ return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.avatar,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String name,  String email, @JsonKey(name: "phone_number")  String? phoneNumber, @JsonKey(name: "user_avatar")  String? avatar, @JsonKey(name: "nick_name")  String? nickName,  String? banner, @JsonKey(name: "date_of_birth")  String? dateOfBirth,  String? gender,  String? intro)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int id,  String name,  String email, @JsonKey(name: "phone_number")  String? phoneNumber,  String? phone, @JsonKey(name: "user_avatar")  String? avatar, @JsonKey(name: "nick_name")  String? nickName,  String? banner, @JsonKey(name: "date_of_birth")  String? dateOfBirth,  String? gender,  String? intro)  $default,) {final _that = this;
 switch (_that) {
 case _UserResponse():
-return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.avatar,_that.nickName,_that.banner,_that.dateOfBirth,_that.gender,_that.intro);}
+return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.phone,_that.avatar,_that.nickName,_that.banner,_that.dateOfBirth,_that.gender,_that.intro);}
 }
 /// A variant of `when` that fallback to returning `null`
 ///
@@ -197,10 +198,10 @@ return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.avatar,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String name,  String email, @JsonKey(name: "phone_number")  String? phoneNumber, @JsonKey(name: "user_avatar")  String? avatar, @JsonKey(name: "nick_name")  String? nickName,  String? banner, @JsonKey(name: "date_of_birth")  String? dateOfBirth,  String? gender,  String? intro)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int id,  String name,  String email, @JsonKey(name: "phone_number")  String? phoneNumber,  String? phone, @JsonKey(name: "user_avatar")  String? avatar, @JsonKey(name: "nick_name")  String? nickName,  String? banner, @JsonKey(name: "date_of_birth")  String? dateOfBirth,  String? gender,  String? intro)?  $default,) {final _that = this;
 switch (_that) {
 case _UserResponse() when $default != null:
-return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.avatar,_that.nickName,_that.banner,_that.dateOfBirth,_that.gender,_that.intro);case _:
+return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.phone,_that.avatar,_that.nickName,_that.banner,_that.dateOfBirth,_that.gender,_that.intro);case _:
   return null;
 
 }
@@ -212,13 +213,14 @@ return $default(_that.id,_that.name,_that.email,_that.phoneNumber,_that.avatar,_
 @JsonSerializable()
 
 class _UserResponse implements UserResponse {
-  const _UserResponse({required this.id, required this.name, required this.email, @JsonKey(name: "phone_number") this.phoneNumber, @JsonKey(name: "user_avatar") this.avatar, @JsonKey(name: "nick_name") this.nickName, this.banner, @JsonKey(name: "date_of_birth") this.dateOfBirth, this.gender, this.intro});
+  const _UserResponse({required this.id, required this.name, required this.email, @JsonKey(name: "phone_number") this.phoneNumber, this.phone, @JsonKey(name: "user_avatar") this.avatar, @JsonKey(name: "nick_name") this.nickName, this.banner, @JsonKey(name: "date_of_birth") this.dateOfBirth, this.gender, this.intro});
   factory _UserResponse.fromJson(Map<String, dynamic> json) => _$UserResponseFromJson(json);
 
 @override final  int id;
 @override final  String name;
 @override final  String email;
 @override@JsonKey(name: "phone_number") final  String? phoneNumber;
+@override final  String? phone;
 @override@JsonKey(name: "user_avatar") final  String? avatar;
 @override@JsonKey(name: "nick_name") final  String? nickName;
 @override final  String? banner;
@@ -239,16 +241,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserResponse&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.nickName, nickName) || other.nickName == nickName)&&(identical(other.banner, banner) || other.banner == banner)&&(identical(other.dateOfBirth, dateOfBirth) || other.dateOfBirth == dateOfBirth)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.intro, intro) || other.intro == intro));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserResponse&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.email, email) || other.email == email)&&(identical(other.phoneNumber, phoneNumber) || other.phoneNumber == phoneNumber)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.avatar, avatar) || other.avatar == avatar)&&(identical(other.nickName, nickName) || other.nickName == nickName)&&(identical(other.banner, banner) || other.banner == banner)&&(identical(other.dateOfBirth, dateOfBirth) || other.dateOfBirth == dateOfBirth)&&(identical(other.gender, gender) || other.gender == gender)&&(identical(other.intro, intro) || other.intro == intro));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,email,phoneNumber,avatar,nickName,banner,dateOfBirth,gender,intro);
+int get hashCode => Object.hash(runtimeType,id,name,email,phoneNumber,phone,avatar,nickName,banner,dateOfBirth,gender,intro);
 
 @override
 String toString() {
-  return 'UserResponse(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, avatar: $avatar, nickName: $nickName, banner: $banner, dateOfBirth: $dateOfBirth, gender: $gender, intro: $intro)';
+  return 'UserResponse(id: $id, name: $name, email: $email, phoneNumber: $phoneNumber, phone: $phone, avatar: $avatar, nickName: $nickName, banner: $banner, dateOfBirth: $dateOfBirth, gender: $gender, intro: $intro)';
 }
 
 
@@ -259,7 +261,7 @@ abstract mixin class _$UserResponseCopyWith<$Res> implements $UserResponseCopyWi
   factory _$UserResponseCopyWith(_UserResponse value, $Res Function(_UserResponse) _then) = __$UserResponseCopyWithImpl;
 @override @useResult
 $Res call({
- int id, String name, String email,@JsonKey(name: "phone_number") String? phoneNumber,@JsonKey(name: "user_avatar") String? avatar,@JsonKey(name: "nick_name") String? nickName, String? banner,@JsonKey(name: "date_of_birth") String? dateOfBirth, String? gender, String? intro
+ int id, String name, String email,@JsonKey(name: "phone_number") String? phoneNumber, String? phone,@JsonKey(name: "user_avatar") String? avatar,@JsonKey(name: "nick_name") String? nickName, String? banner,@JsonKey(name: "date_of_birth") String? dateOfBirth, String? gender, String? intro
 });
 
 
@@ -276,12 +278,13 @@ class __$UserResponseCopyWithImpl<$Res>
 
 /// Create a copy of UserResponse
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? email = null,Object? phoneNumber = freezed,Object? avatar = freezed,Object? nickName = freezed,Object? banner = freezed,Object? dateOfBirth = freezed,Object? gender = freezed,Object? intro = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? email = null,Object? phoneNumber = freezed,Object? phone = freezed,Object? avatar = freezed,Object? nickName = freezed,Object? banner = freezed,Object? dateOfBirth = freezed,Object? gender = freezed,Object? intro = freezed,}) {
   return _then(_UserResponse(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as int,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as String,phoneNumber: freezed == phoneNumber ? _self.phoneNumber : phoneNumber // ignore: cast_nullable_to_non_nullable
+as String?,phone: freezed == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
 as String?,avatar: freezed == avatar ? _self.avatar : avatar // ignore: cast_nullable_to_non_nullable
 as String?,nickName: freezed == nickName ? _self.nickName : nickName // ignore: cast_nullable_to_non_nullable
 as String?,banner: freezed == banner ? _self.banner : banner // ignore: cast_nullable_to_non_nullable

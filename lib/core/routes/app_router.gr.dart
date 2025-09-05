@@ -109,8 +109,10 @@ class PostRoute extends PageRouteInfo<void> {
 /// generated route for
 /// [ProfileEditPage]
 class ProfileEditRoute extends PageRouteInfo<void> {
-  const ProfileEditRoute({List<PageRouteInfo>? children})
-    : super(ProfileEditRoute.name, initialChildren: children);
+  const ProfileEditRoute({
+    List<PageRouteInfo>? children,
+    required ProfileResponse profileResponse,
+  }) : super(ProfileEditRoute.name, initialChildren: children);
 
   static const String name = 'ProfileEditRoute';
 

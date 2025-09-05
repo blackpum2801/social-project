@@ -4,14 +4,17 @@ import 'package:social/core/injector/injector.dart';
 import 'package:social/core/services/api_services.dart';
 import 'package:social/core/services/local_storage_service.dart';
 import 'package:social/data/repo_impl/login_repository_impl.dart';
+import 'package:social/data/repo_impl/profile_change_respository_impl.dart';
 import 'package:social/data/repo_impl/profile_repository_impl.dart';
 import 'package:social/data/repo_impl/register_repository_impl.dart';
 import 'package:social/domain/repo/login_repository.dart';
+import 'package:social/domain/repo/profile_change_repository.dart';
 import 'package:social/domain/repo/profile_repository.dart';
 import 'package:social/domain/repo/register_repository.dart';
-import 'package:social/domain/usecases/register_usecase/login_usecase.dart';
-import 'package:social/domain/usecases/register_usecase/profile_usecase.dart';
-import 'package:social/domain/usecases/register_usecase/register_usecase.dart';
+import 'package:social/domain/usecases/login_usecase.dart';
+import 'package:social/domain/usecases/profile_change_usecase.dart';
+import 'package:social/domain/usecases/profile_usecase.dart';
+import 'package:social/domain/usecases/register_usecase.dart';
 
 class AppModules {
   static Future<void> inject() async {
@@ -36,6 +39,13 @@ class AppModules {
     injector.registerLazySingleton<ProfileUsecase>(() => ProfileUsecase());
     injector.registerLazySingleton<ProfileRepository>(
       () => ProfileRepositoryImpl(injector.get<ApiServices>()),
+    );
+    // profile change
+    injector.registerLazySingleton<ProfileChangeUsecase>(
+      () => ProfileChangeUsecase(),
+    );
+    injector.registerLazySingleton<ProfileChangeRepository>(
+      () => ProfileChangeRepositoryImpl(injector.get<ApiServices>()),
     );
     injector.registerLazySingleton<Dio>(() {
       final dio = Dio();

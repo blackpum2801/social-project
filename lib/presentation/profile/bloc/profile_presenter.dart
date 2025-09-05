@@ -1,10 +1,9 @@
 import 'dart:io';
-
-import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:social/core/errors/api_error_handler.dart';
 
-import 'package:social/domain/usecases/register_usecase/profile_usecase.dart';
+import 'package:social/domain/usecases/profile_usecase.dart';
 import 'package:social/presentation/profile/bloc/profile_state.dart';
 
 class ProfilePresenter extends Cubit<ProfileState> {
@@ -22,43 +21,82 @@ class ProfilePresenter extends Cubit<ProfileState> {
         ),
       );
     } catch (e) {
+      final apiError = ApiErrorHandler.handle(e);
+
       emit(
         state.copyWith(
           status: ProfileStatus.submissionFailure,
-          errorMessage: e.toString(),
+          errorMessage: apiError.message,
         ),
       );
     }
   }
 
   Future<void> updateAvatar() async {
-    // try {
-    final XFile? picked = await _picker.pickImage(
-      source: ImageSource.gallery,
-      maxWidth: 800,
-      maxHeight: 800,
-      imageQuality: 60,
-    );
-    if (picked == null) return;
+    try {
+      final XFile? picked = await _picker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 800,
+        maxHeight: 800,
+        imageQuality: 60,
+      );
+      if (picked == null) return;
 
-    emit(state.copyWith(status: ProfileStatus.submissionInProgress));
+      emit(state.copyWith(status: ProfileStatus.submissionInProgress));
 
-    // Truyền MultipartFile vào Usecase
-    final response = await _profileUsecase.callUpdateAvatar(File(picked.path));
+      final response = await _profileUsecase.callUpdateAvatar(
+        File(picked.path),
+      );
 
-    emit(
-      state.copyWith(
-        status: ProfileStatus.submissionSuccess,
-        response: response,
-      ),
-    );
-    // } catch (e) {
-    //   emit(
-    //     state.copyWith(
-    //       status: ProfileStatus.submissionFailure,
-    //       errorMessage: e.toString(),
-    //     ),
-    //   );
-    // }
+      emit(
+        state.copyWith(
+          status: ProfileStatus.submissionSuccess,
+          response: response,
+        ),
+      );
+    } catch (e) {
+      final apiError = ApiErrorHandler.handle(e);
+
+      emit(
+        state.copyWith(
+          status: ProfileStatus.submissionFailure,
+          errorMessage: apiError.message,
+        ),
+      );
+    }
+  }
+
+  Future<void> updateBanner() async {
+    try {
+      final XFile? picked = await _picker.pickImage(
+        source: ImageSource.gallery,
+        maxWidth: 800,
+        maxHeight: 800,
+        imageQuality: 60,
+      );
+      if (picked == null) return;
+
+      emit(state.copyWith(status: ProfileStatus.submissionInProgress));
+
+      final response = await _profileUsecase.callUpdateBanner(
+        File(picked.path),
+      );
+
+      emit(
+        state.copyWith(
+          status: ProfileStatus.submissionSuccess,
+          response: response,
+        ),
+      );
+    } catch (e) {
+      final apiError = ApiErrorHandler.handle(e);
+
+      emit(
+        state.copyWith(
+          status: ProfileStatus.submissionFailure,
+          errorMessage: apiError.message,
+        ),
+      );
+    }
   }
 }

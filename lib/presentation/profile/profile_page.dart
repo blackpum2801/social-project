@@ -33,9 +33,6 @@ class _ProfilePageState extends State<ProfilePage> {
       buildWhen: (previous, current) =>
           previous.response != current.response ||
           previous.status != current.status,
-      listenWhen: (previous, current) =>
-          previous.status != current.status &&
-          current.status == ProfileStatus.submissionFailure,
       listener: (context, state) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(state.errorMessage ?? "Có lỗi xảy ra")),

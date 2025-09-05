@@ -5,4 +5,6 @@ class ApiConfig {
   static const String login = '/auth/login';
   static const String me = '/auth/me';
   static const String updateAvatar = '/users/update-avatar';
+  static const String updateBanner = '/users/update-banner';
+  static const String updateMe = '/users/me';
 }

@@ -13,7 +13,7 @@ _ProfileResponse _$ProfileResponseFromJson(Map<String, dynamic> json) =>
           .toList(),
       statusCode: (json['status_code'] as num).toInt(),
       status: json['status'] as bool,
-      content: UserResponse.fromJson(json['content'] as Map<String, dynamic>),
+      content: _contentFromJson(json['content']),
       expiresIn: (json['expires_in'] as num?)?.toInt(),
     );
 
