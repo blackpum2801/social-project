@@ -91,6 +91,7 @@ class ProfileCard extends StatelessWidget {
                                       context.router.push(
                                         ProfileEditRoute(
                                           profileResponse: state.response!,
+                                          profilePresenter: presenter,
                                         ),
                                       );
                                     }
