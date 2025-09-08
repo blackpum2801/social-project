@@ -108,20 +108,69 @@ class PostRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ProfileEditPage]
-class ProfileEditRoute extends PageRouteInfo<void> {
-  const ProfileEditRoute({
+class ProfileEditRoute extends PageRouteInfo<ProfileEditRouteArgs> {
+  ProfileEditRoute({
+    Key? key,
+    ProfileResponse? profileResponse,
+    ProfilePresenter? profilePresenter,
     List<PageRouteInfo>? children,
-    required ProfileResponse profileResponse,
-  }) : super(ProfileEditRoute.name, initialChildren: children);
+  }) : super(
+         ProfileEditRoute.name,
+         args: ProfileEditRouteArgs(
+           key: key,
+           profileResponse: profileResponse,
+           profilePresenter: profilePresenter,
+         ),
+         initialChildren: children,
+       );
 
   static const String name = 'ProfileEditRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const ProfileEditPage();
+      final args = data.argsAs<ProfileEditRouteArgs>(
+        orElse: () => const ProfileEditRouteArgs(),
+      );
+      return ProfileEditPage(
+        key: args.key,
+        profileResponse: args.profileResponse,
+        profilePresenter: args.profilePresenter,
+      );
     },
   );
+}
+
+class ProfileEditRouteArgs {
+  const ProfileEditRouteArgs({
+    this.key,
+    this.profileResponse,
+    this.profilePresenter,
+  });
+
+  final Key? key;
+
+  final ProfileResponse? profileResponse;
+
+  final ProfilePresenter? profilePresenter;
+
+  @override
+  String toString() {
+    return 'ProfileEditRouteArgs{key: $key, profileResponse: $profileResponse, profilePresenter: $profilePresenter}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! ProfileEditRouteArgs) return false;
+    return key == other.key &&
+        profileResponse == other.profileResponse &&
+        profilePresenter == other.profilePresenter;
+  }
+
+  @override
+  int get hashCode =>
+      key.hashCode ^ profileResponse.hashCode ^ profilePresenter.hashCode;
 }
 
 /// generated route for
