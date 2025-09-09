@@ -6,6 +6,7 @@ import 'package:social/data/models/request/login/login_request.dart';
 import 'package:social/data/models/request/register/register_request.dart';
 import 'package:social/data/models/response/auth/auth_response.dart';
 import 'package:social/data/models/response/profile/profile_response.dart';
+import 'package:social/data/models/response/refresh/refresh_response.dart';
 part 'api_services.g.dart';
 
 @RestApi()
@@ -37,4 +38,6 @@ abstract class ApiServices {
   Future<ProfileResponse> updateMeProfile({
     @Body() required Map<String, dynamic> body,
   });
+  @POST(ApiConfig.refreshToken)
+  Future<RefreshResponse> callAPIRefreshToken();
 }
