@@ -67,6 +67,28 @@ class AppModules {
             }
             return handler.next(options);
           },
+          onError: (DioException e, handler) async {
+            if (e.response?.statusCode == 401) {
+              try {
+                final api = injector.get<ApiServices>();
+                final refreshTokenResponse = await api.callAPIRefreshToken();
+                final newToken = refreshTokenResponse.content.token;
+                final expiresIn = refreshTokenResponse.content.expiresIn;
+                await injector.get<LocalStorageService>().saveToken(
+                  newToken,
+                  expiresIn,
+                );
+                final req = e.requestOptions;
+                req.headers['Authorization'] = 'Bearer $newToken';
+
+                final cloneResponse = await dio.fetch(req);
+                return handler.resolve(cloneResponse);
+              } catch (e) {
+                injector.get<LocalStorageService>().clearToken();
+              }
+            }
+            return handler.next(e);
+          },
         ),
       );
       dio.interceptors.add(
