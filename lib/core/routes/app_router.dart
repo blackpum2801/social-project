@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:social/core/routes/auth_guard.dart';
 import 'package:social/core/routes/dashboard.dart';
 import 'package:social/data/models/response/profile/profile_response.dart';
 import 'package:social/presentation/chat/chat_page.dart';
@@ -12,6 +13,7 @@ import 'package:social/presentation/profile_change/profile_change_edit_page.dart
 import 'package:social/presentation/profile/profile_page.dart';
 import 'package:social/presentation/register/register_page.dart';
 import 'package:social/presentation/search/search_page.dart';
+import 'package:social/presentation/splash/splash_page.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
@@ -21,8 +23,10 @@ class AppRouter extends RootStackRouter {
 
   @override
   List<AutoRoute> get routes => [
+    AutoRoute(page: SplashRoute.page, initial: true),
     AutoRoute(
       page: DashboardRoute.page,
+      guards: [AuthGuard()],
       children: [
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: SearchRoute.page),
@@ -31,7 +35,7 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: ProfileRoute.page),
       ],
     ),
-    AutoRoute(page: LoginRoute.page, initial: true),
+    AutoRoute(page: LoginRoute.page),
     AutoRoute(page: RegisterRoute.page),
     AutoRoute(page: ForgotRoute.page),
     AutoRoute(page: ProfileEditRoute.page),

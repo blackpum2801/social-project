@@ -23,8 +23,9 @@ class LoginPresenter extends Cubit<LoginState> {
     try {
       final response = await _loginUsecase.run(request);
       final token = response.content.token;
-      if (token != null) {
-        injector.get<LocalStorageService>().saveToken(token);
+      final expiresIn = response.content.expiresIn;
+      if (token?.isNotEmpty == true && expiresIn != null) {
+        injector.get<LocalStorageService>().saveToken(token!, expiresIn);
       }
       emit(
         state.copyWith(
