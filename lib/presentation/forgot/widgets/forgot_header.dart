@@ -11,7 +11,7 @@ class ForgotHeader extends StatelessWidget {
           "Quên mật khẩu",
           style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 8),
+        SizedBox(height: 10),
         Text(
           "Nhập email để khôi phục mật khẩu",
           style: TextStyle(fontSize: 16, color: Colors.grey),

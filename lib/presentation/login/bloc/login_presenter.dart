@@ -10,15 +10,6 @@ class LoginPresenter extends Cubit<LoginState> {
   final LoginUsecase _loginUsecase;
   LoginPresenter(this._loginUsecase) : super(LoginState.initial());
   Future<void> login(LoginRequest request) async {
-    if (request.email.isEmpty || request.password.isEmpty) {
-      emit(
-        state.copyWith(
-          status: LoginStatus.submissionFailure,
-          errorMessage: "Vui lòng nhập đầy đủ thông tin",
-        ),
-      );
-      return;
-    }
     emit(state.copyWith(status: LoginStatus.submissionInProgress));
     try {
       final response = await _loginUsecase.run(request);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social/core/injector/app_modules.dart' show AppModules;
 import 'package:social/core/routes/app_router.dart';
+import 'package:social/presentation/forgot/bloc/forgot_module.dart';
 import 'package:social/presentation/login/bloc/login_module.dart';
 import 'package:social/presentation/profile/bloc/profile_module.dart';
 import 'package:social/presentation/profile_change/bloc/profile_change_module.dart';
@@ -34,5 +35,6 @@ class DependencyManager {
     await LoginModule.inject();
     await ProfileModule.inject();
     await ProfileChangeModule.inject();
+    await ForgotModule.inject();
   }
 }
