@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:social/core/injector/injector.dart';
 import 'package:social/core/routes/app_router.dart';
+import 'package:social/core/services/local_storage_service.dart';
 import 'package:social/presentation/profile/bloc/profile_presenter.dart';
 import 'package:social/presentation/profile/bloc/profile_state.dart';
 import 'package:social/presentation/profile/widgets/profile_card.dart';
@@ -20,9 +21,11 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final _presenter = injector.get<ProfilePresenter>();
+  late final LocalStorageService _localStorage;
   @override
   void initState() {
     _presenter.getProfile();
+    _localStorage = injector.get<LocalStorageService>();
     super.initState();
   }
 
@@ -84,8 +87,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   menuChildren: [
                     MenuItemButton(
                       leadingIcon: const Icon(Icons.logout, color: Colors.red),
-                      onPressed: () {
-                        context.router.replaceAll([const LoginRoute()]);
+                      onPressed: () async {
+                        await _localStorage.clearToken();
+                        if (context.mounted) {
+                          context.router.replaceAll([const LoginRoute()]);
+                        }
                       },
                       child: const Text("Đăng xuất"),
                     ),

@@ -3,17 +3,23 @@ import 'package:social/core/constants/api_config.dart';
 import 'package:social/core/injector/injector.dart';
 import 'package:social/core/services/api_services.dart';
 import 'package:social/core/services/local_storage_service.dart';
+import 'package:social/data/repo_impl/forgot_repository_impl.dart';
 import 'package:social/data/repo_impl/login_repository_impl.dart';
 import 'package:social/data/repo_impl/profile_change_respository_impl.dart';
 import 'package:social/data/repo_impl/profile_repository_impl.dart';
+import 'package:social/data/repo_impl/refresh_token_repository_impl.dart';
 import 'package:social/data/repo_impl/register_repository_impl.dart';
+import 'package:social/domain/repo/forgot_repository.dart';
 import 'package:social/domain/repo/login_repository.dart';
 import 'package:social/domain/repo/profile_change_repository.dart';
 import 'package:social/domain/repo/profile_repository.dart';
+import 'package:social/domain/repo/refresh_repository.dart';
 import 'package:social/domain/repo/register_repository.dart';
+import 'package:social/domain/usecases/forgot_usecase.dart';
 import 'package:social/domain/usecases/login_usecase.dart';
 import 'package:social/domain/usecases/profile_change_usecase.dart';
 import 'package:social/domain/usecases/profile_usecase.dart';
+import 'package:social/domain/usecases/refresh_token_usescase.dart';
 import 'package:social/domain/usecases/register_usecase.dart';
 
 class AppModules {
@@ -47,6 +53,20 @@ class AppModules {
     injector.registerLazySingleton<ProfileChangeRepository>(
       () => ProfileChangeRepositoryImpl(injector.get<ApiServices>()),
     );
+    // refresh token
+    injector.registerLazySingleton<RefreshUsecase>(() => RefreshUsecase());
+    injector.registerLazySingleton<RefreshRepository>(
+      () => RefreshRepositoryImpl(
+        injector.get<ApiServices>(),
+        injector.get<LocalStorageService>(),
+      ),
+    );
+
+    // forgot
+    injector.registerLazySingleton<ForgotUsecase>(() => ForgotUsecase());
+    injector.registerLazySingleton<ForgotRepository>(
+      () => ForgotRepositoryImpl(injector.get<ApiServices>()),
+    );
     injector.registerLazySingleton<Dio>(() {
       final dio = Dio();
       dio.options.baseUrl = ApiConfig.baseUrl;
@@ -70,9 +90,10 @@ class AppModules {
           onError: (DioException e, handler) async {
             if (e.response?.statusCode == 401) {
               try {
-                final api = injector.get<ApiServices>();
-                final refreshTokenResponse = await api.callAPIRefreshToken();
-                final newToken = refreshTokenResponse.content.token;
+                final refreshUsecase = injector.get<RefreshUsecase>();
+                final refreshTokenResponse = await refreshUsecase.run();
+
+                final newToken = refreshTokenResponse!.content.token;
                 final expiresIn = refreshTokenResponse.content.expiresIn;
                 await injector.get<LocalStorageService>().saveToken(
                   newToken,

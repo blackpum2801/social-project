@@ -2,9 +2,11 @@ import 'dart:io';
 import 'package:dio/dio.dart' hide Headers;
 import 'package:retrofit/retrofit.dart';
 import 'package:social/core/constants/api_config.dart';
+import 'package:social/data/models/request/forgot/forgot_request.dart';
 import 'package:social/data/models/request/login/login_request.dart';
 import 'package:social/data/models/request/register/register_request.dart';
 import 'package:social/data/models/response/auth/auth_response.dart';
+import 'package:social/data/models/response/forgot/forgot_response.dart';
 import 'package:social/data/models/response/profile/profile_response.dart';
 import 'package:social/data/models/response/refresh/refresh_response.dart';
 part 'api_services.g.dart';
@@ -39,5 +41,11 @@ abstract class ApiServices {
     @Body() required Map<String, dynamic> body,
   });
   @POST(ApiConfig.refreshToken)
-  Future<RefreshResponse> callAPIRefreshToken();
+  Future<RefreshResponse> callAPIRefreshToken({
+    @Body() required Map<String, dynamic> request,
+  });
+  @POST(ApiConfig.forgot)
+  Future<ForgotResponse> callAPIForgot({
+    @Body() required ForgotRequest request,
+  });
 }
