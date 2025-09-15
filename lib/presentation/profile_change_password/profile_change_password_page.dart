@@ -71,7 +71,7 @@ class _ProfileChangePasswordPageState extends State<ProfileChangePasswordPage>
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text("Đổi mật khẩu thành công")),
                   );
-                  context.router.pop(); // quay lại trang trước
+                  context.router.pop();
                 } else if (state.status ==
                     ProfileChangePasswordStatus.submissionFailure) {
                   ScaffoldMessenger.of(context).showSnackBar(

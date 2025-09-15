@@ -4,9 +4,11 @@ import 'package:retrofit/retrofit.dart';
 import 'package:social/core/constants/api_config.dart';
 import 'package:social/data/models/request/forgot/forgot_request.dart';
 import 'package:social/data/models/request/login/login_request.dart';
+import 'package:social/data/models/request/posts/create_post_request.dart';
 import 'package:social/data/models/request/register/register_request.dart';
 import 'package:social/data/models/response/auth/auth_response.dart';
 import 'package:social/data/models/response/forgot/forgot_response.dart';
+import 'package:social/data/models/response/posts/create_post_response.dart';
 import 'package:social/data/models/response/profile/profile_response.dart';
 import 'package:social/data/models/response/refresh/refresh_response.dart';
 part 'api_services.g.dart';
@@ -51,5 +53,9 @@ abstract class ApiServices {
   @PUT(ApiConfig.changePassword)
   Future<AuthResponse> calAPIChangePassword({
     @Body() required RegisterRequest request,
+  });
+  @POST(ApiConfig.createPost)
+  Future<CreatePostResponse> createPost({
+    @Body() required CreatePostRequest request,
   });
 }
