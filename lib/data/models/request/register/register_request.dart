@@ -6,11 +6,12 @@ part 'register_request.g.dart';
 @freezed
 sealed class RegisterRequest with _$RegisterRequest {
   const factory RegisterRequest({
-    required String email,
+    String? email,
     required String password,
     @JsonKey(name: "password_confirmation")
     required String passwordConfirmation,
-    required String name,
+    @JsonKey(name: "old_password") String? oldPassword,
+    String? name,
   }) = _RegisterRequest;
 
   factory RegisterRequest.fromJson(Map<String, dynamic> json) =>
