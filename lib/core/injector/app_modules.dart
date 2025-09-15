@@ -5,18 +5,21 @@ import 'package:social/core/services/api_services.dart';
 import 'package:social/core/services/local_storage_service.dart';
 import 'package:social/data/repo_impl/forgot_repository_impl.dart';
 import 'package:social/data/repo_impl/login_repository_impl.dart';
+import 'package:social/data/repo_impl/profile_change_password_repository_impl.dart';
 import 'package:social/data/repo_impl/profile_change_respository_impl.dart';
 import 'package:social/data/repo_impl/profile_repository_impl.dart';
 import 'package:social/data/repo_impl/refresh_token_repository_impl.dart';
 import 'package:social/data/repo_impl/register_repository_impl.dart';
 import 'package:social/domain/repo/forgot_repository.dart';
 import 'package:social/domain/repo/login_repository.dart';
+import 'package:social/domain/repo/profile_change_password_repository.dart';
 import 'package:social/domain/repo/profile_change_repository.dart';
 import 'package:social/domain/repo/profile_repository.dart';
 import 'package:social/domain/repo/refresh_repository.dart';
 import 'package:social/domain/repo/register_repository.dart';
 import 'package:social/domain/usecases/forgot_usecase.dart';
 import 'package:social/domain/usecases/login_usecase.dart';
+import 'package:social/domain/usecases/profile_change_password_usecase.dart';
 import 'package:social/domain/usecases/profile_change_usecase.dart';
 import 'package:social/domain/usecases/profile_usecase.dart';
 import 'package:social/domain/usecases/refresh_token_usescase.dart';
@@ -53,6 +56,14 @@ class AppModules {
     injector.registerLazySingleton<ProfileChangeRepository>(
       () => ProfileChangeRepositoryImpl(injector.get<ApiServices>()),
     );
+    // profile change password
+    injector.registerLazySingleton<ProfileChangePasswordUsecase>(
+      () => ProfileChangePasswordUsecase(),
+    );
+    injector.registerLazySingleton<ProfileChangePasswordRepository>(
+      () => ProfileChangePasswordRepositoryImpl(injector.get<ApiServices>()),
+    );
+
     // refresh token
     injector.registerLazySingleton<RefreshUsecase>(() => RefreshUsecase());
     injector.registerLazySingleton<RefreshRepository>(

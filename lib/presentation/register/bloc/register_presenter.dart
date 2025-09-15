@@ -10,8 +10,8 @@ class RegisterPresenter extends Cubit<RegisterState> {
   RegisterPresenter(this._registerUsecase) : super(RegisterState.initial());
 
   Future<void> register(RegisterRequest request) async {
-    if (request.name.isEmpty ||
-        request.email.isEmpty ||
+    if (request.name!.isEmpty ||
+        request.email!.isEmpty ||
         request.password.isEmpty ||
         request.passwordConfirmation.isEmpty) {
       emit(

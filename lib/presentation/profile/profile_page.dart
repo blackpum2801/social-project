@@ -86,6 +86,18 @@ class _ProfilePageState extends State<ProfilePage> {
                   },
                   menuChildren: [
                     MenuItemButton(
+                      leadingIcon: const Icon(
+                        Icons.password,
+                        color: Colors.red,
+                      ),
+                      onPressed: () async {
+                        if (context.mounted) {
+                          context.router.push(ProfileChangePasswordRoute());
+                        }
+                      },
+                      child: const Text("Thay đổi mật khẩu"),
+                    ),
+                    MenuItemButton(
                       leadingIcon: const Icon(Icons.logout, color: Colors.red),
                       onPressed: () async {
                         await _localStorage.clearToken();

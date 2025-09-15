@@ -11,6 +11,7 @@ import 'package:social/presentation/post/post_page.dart';
 import 'package:social/presentation/profile/bloc/profile_presenter.dart';
 import 'package:social/presentation/profile_change/profile_change_edit_page.dart';
 import 'package:social/presentation/profile/profile_page.dart';
+import 'package:social/presentation/profile_change_password/profile_change_password_page.dart';
 import 'package:social/presentation/register/register_page.dart';
 import 'package:social/presentation/search/search_page.dart';
 import 'package:social/presentation/splash/splash_page.dart';
@@ -39,5 +40,6 @@ class AppRouter extends RootStackRouter {
     AutoRoute(page: RegisterRoute.page),
     AutoRoute(page: ForgotRoute.page),
     AutoRoute(page: ProfileEditRoute.page),
+    AutoRoute(page: ProfileChangePasswordRoute.page),
   ];
 }

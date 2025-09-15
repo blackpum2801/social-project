@@ -5,6 +5,7 @@ import 'package:social/presentation/forgot/bloc/forgot_module.dart';
 import 'package:social/presentation/login/bloc/login_module.dart';
 import 'package:social/presentation/profile/bloc/profile_module.dart';
 import 'package:social/presentation/profile_change/bloc/profile_change_module.dart';
+import 'package:social/presentation/profile_change_password/bloc/profile_change_password_module.dart';
 import 'package:social/presentation/register/bloc/register_module.dart';
 
 void main() async {
@@ -36,5 +37,6 @@ class DependencyManager {
     await ProfileModule.inject();
     await ProfileChangeModule.inject();
     await ForgotModule.inject();
+    await ProfileChangePasswordModule.inject();
   }
 }
