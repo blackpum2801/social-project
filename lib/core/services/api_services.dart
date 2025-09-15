@@ -48,4 +48,8 @@ abstract class ApiServices {
   Future<ForgotResponse> callAPIForgot({
     @Body() required ForgotRequest request,
   });
+  @PUT(ApiConfig.changePassword)
+  Future<AuthResponse> calAPIChangePassword({
+    @Body() required RegisterRequest request,
+  });
 }

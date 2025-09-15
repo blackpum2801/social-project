@@ -18,12 +18,14 @@ class LoginPresenter extends Cubit<LoginState> {
       if (token?.isNotEmpty == true && expiresIn != null) {
         injector.get<LocalStorageService>().saveToken(token!, expiresIn);
       }
-      emit(
-        state.copyWith(
-          status: LoginStatus.submissionSuccess,
-          response: response,
-        ),
-      );
+      if (!isClosed) {
+        emit(
+          state.copyWith(
+            status: LoginStatus.submissionSuccess,
+            response: response,
+          ),
+        );
+      }
     } catch (e) {
       final apiError = ApiErrorHandler.handle(e);
 

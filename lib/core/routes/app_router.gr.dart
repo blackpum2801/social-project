@@ -107,6 +107,22 @@ class PostRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ProfileChangePasswordPage]
+class ProfileChangePasswordRoute extends PageRouteInfo<void> {
+  const ProfileChangePasswordRoute({List<PageRouteInfo>? children})
+    : super(ProfileChangePasswordRoute.name, initialChildren: children);
+
+  static const String name = 'ProfileChangePasswordRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ProfileChangePasswordPage();
+    },
+  );
+}
+
+/// generated route for
 /// [ProfileEditPage]
 class ProfileEditRoute extends PageRouteInfo<ProfileEditRouteArgs> {
   ProfileEditRoute({

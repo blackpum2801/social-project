@@ -8,10 +8,11 @@ part of 'register_request.dart';
 
 _RegisterRequest _$RegisterRequestFromJson(Map<String, dynamic> json) =>
     _RegisterRequest(
-      email: json['email'] as String,
+      email: json['email'] as String?,
       password: json['password'] as String,
       passwordConfirmation: json['password_confirmation'] as String,
-      name: json['name'] as String,
+      oldPassword: json['old_password'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic> _$RegisterRequestToJson(_RegisterRequest instance) =>
@@ -19,5 +20,6 @@ Map<String, dynamic> _$RegisterRequestToJson(_RegisterRequest instance) =>
       'email': instance.email,
       'password': instance.password,
       'password_confirmation': instance.passwordConfirmation,
+      'old_password': instance.oldPassword,
       'name': instance.name,
     };
