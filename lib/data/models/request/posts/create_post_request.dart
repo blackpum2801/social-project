@@ -7,7 +7,7 @@ part 'create_post_request.g.dart';
 sealed class CreatePostRequest with _$CreatePostRequest {
   const factory CreatePostRequest({
     required String contents,
-    required List<String> images,
+    List<String>? images,
   }) = _CreatePostRequest;
 
   factory CreatePostRequest.fromJson(Map<String, dynamic> json) =>

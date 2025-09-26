@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CreatePostRequest {
 
- String get contents; List<String> get images;
+ String get contents; List<String>? get images;
 /// Create a copy of CreatePostRequest
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $CreatePostRequestCopyWith<$Res>  {
   factory $CreatePostRequestCopyWith(CreatePostRequest value, $Res Function(CreatePostRequest) _then) = _$CreatePostRequestCopyWithImpl;
 @useResult
 $Res call({
- String contents, List<String> images
+ String contents, List<String>? images
 });
 
 
@@ -65,11 +65,11 @@ class _$CreatePostRequestCopyWithImpl<$Res>
 
 /// Create a copy of CreatePostRequest
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? contents = null,Object? images = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? contents = null,Object? images = freezed,}) {
   return _then(_self.copyWith(
 contents: null == contents ? _self.contents : contents // ignore: cast_nullable_to_non_nullable
-as String,images: null == images ? _self.images : images // ignore: cast_nullable_to_non_nullable
-as List<String>,
+as String,images: freezed == images ? _self.images : images // ignore: cast_nullable_to_non_nullable
+as List<String>?,
   ));
 }
 
@@ -151,7 +151,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String contents,  List<String> images)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String contents,  List<String>? images)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _CreatePostRequest() when $default != null:
 return $default(_that.contents,_that.images);case _:
@@ -172,7 +172,7 @@ return $default(_that.contents,_that.images);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String contents,  List<String> images)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String contents,  List<String>? images)  $default,) {final _that = this;
 switch (_that) {
 case _CreatePostRequest():
 return $default(_that.contents,_that.images);}
@@ -189,7 +189,7 @@ return $default(_that.contents,_that.images);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String contents,  List<String> images)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String contents,  List<String>? images)?  $default,) {final _that = this;
 switch (_that) {
 case _CreatePostRequest() when $default != null:
 return $default(_that.contents,_that.images);case _:
@@ -204,15 +204,17 @@ return $default(_that.contents,_that.images);case _:
 @JsonSerializable()
 
 class _CreatePostRequest implements CreatePostRequest {
-  const _CreatePostRequest({required this.contents, required final  List<String> images}): _images = images;
+  const _CreatePostRequest({required this.contents, final  List<String>? images}): _images = images;
   factory _CreatePostRequest.fromJson(Map<String, dynamic> json) => _$CreatePostRequestFromJson(json);
 
 @override final  String contents;
- final  List<String> _images;
-@override List<String> get images {
+ final  List<String>? _images;
+@override List<String>? get images {
+  final value = _images;
+  if (value == null) return null;
   if (_images is EqualUnmodifiableListView) return _images;
   // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_images);
+  return EqualUnmodifiableListView(value);
 }
 
 
@@ -249,7 +251,7 @@ abstract mixin class _$CreatePostRequestCopyWith<$Res> implements $CreatePostReq
   factory _$CreatePostRequestCopyWith(_CreatePostRequest value, $Res Function(_CreatePostRequest) _then) = __$CreatePostRequestCopyWithImpl;
 @override @useResult
 $Res call({
- String contents, List<String> images
+ String contents, List<String>? images
 });
 
 
@@ -266,11 +268,11 @@ class __$CreatePostRequestCopyWithImpl<$Res>
 
 /// Create a copy of CreatePostRequest
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? contents = null,Object? images = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? contents = null,Object? images = freezed,}) {
   return _then(_CreatePostRequest(
 contents: null == contents ? _self.contents : contents // ignore: cast_nullable_to_non_nullable
-as String,images: null == images ? _self._images : images // ignore: cast_nullable_to_non_nullable
-as List<String>,
+as String,images: freezed == images ? _self._images : images // ignore: cast_nullable_to_non_nullable
+as List<String>?,
   ));
 }
 

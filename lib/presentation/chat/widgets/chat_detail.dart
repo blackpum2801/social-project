@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class ChatDetailScreen extends StatefulWidget {
   final String userName;
-  ChatDetailScreen({required this.userName, Key? key}) : super(key: key);
+  const ChatDetailScreen({required this.userName, super.key});
 
   @override
   State<ChatDetailScreen> createState() => _ChatDetailScreenState();

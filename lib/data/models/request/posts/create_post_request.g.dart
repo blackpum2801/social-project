@@ -9,8 +9,8 @@ part of 'create_post_request.dart';
 _CreatePostRequest _$CreatePostRequestFromJson(Map<String, dynamic> json) =>
     _CreatePostRequest(
       contents: json['contents'] as String,
-      images: (json['images'] as List<dynamic>)
-          .map((e) => e as String)
+      images: (json['images'] as List<dynamic>?)
+          ?.map((e) => e as String)
           .toList(),
     );
 

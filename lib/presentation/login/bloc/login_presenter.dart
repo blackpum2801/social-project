@@ -28,7 +28,6 @@ class LoginPresenter extends Cubit<LoginState> {
       }
     } catch (e) {
       final apiError = ApiErrorHandler.handle(e);
-
       emit(
         state.copyWith(
           status: LoginStatus.submissionFailure,

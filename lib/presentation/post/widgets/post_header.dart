@@ -21,7 +21,7 @@ class PostHeader extends StatelessWidget {
             ),
             SizedBox(height: 2),
             Row(
-              children: const [
+              children: [
                 Icon(Icons.public, size: 14),
                 SizedBox(width: 4),
                 Text(

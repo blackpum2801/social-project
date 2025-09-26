@@ -13,4 +13,7 @@ class ApiConfig {
   static const String changePassword = '/users/change-password';
   // Posts
   static const String createPost = '/posts';
+  static const String getPost = '/posts';
+  static const String likePost = '/posts/like';
+  static const String commentPost = '/posts/comment';
 }

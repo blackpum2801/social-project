@@ -3,12 +3,15 @@ import 'package:social/core/injector/app_modules.dart' show AppModules;
 import 'package:social/core/routes/app_router.dart';
 import 'package:social/presentation/forgot/bloc/forgot_module.dart';
 import 'package:social/presentation/login/bloc/login_module.dart';
+import 'package:social/presentation/post/bloc/post_module.dart';
 import 'package:social/presentation/profile/bloc/profile_module.dart';
 import 'package:social/presentation/profile_change/bloc/profile_change_module.dart';
 import 'package:social/presentation/profile_change_password/bloc/profile_change_password_module.dart';
 import 'package:social/presentation/register/bloc/register_module.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 void main() async {
+  timeago.setLocaleMessages('vi', timeago.ViMessages());
   await DependencyManager.inject();
   runApp(MyApp());
 }
@@ -38,5 +41,6 @@ class DependencyManager {
     await ProfileChangeModule.inject();
     await ForgotModule.inject();
     await ProfileChangePasswordModule.inject();
+    await PostModule.inject();
   }
 }
