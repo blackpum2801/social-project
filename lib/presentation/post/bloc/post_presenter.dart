@@ -135,9 +135,9 @@ class PostPresenter extends Cubit<PostState> {
 
     final post = currentPosts[index];
     final tempComment = PostComment(
-      name: "Bạn",
+      name: post.userName ?? "Ẩn danh",
       content: content,
-      userAvatar: "https://i.pravatar.cc/50",
+      userAvatar: post.userAvatar,
     );
 
     final updatedComments = List<PostComment>.from(post.comments)
@@ -161,7 +161,7 @@ class PostPresenter extends Cubit<PostState> {
         CommentRequest(postId: postId, content: content),
       );
       final serverComment = PostComment(
-        name: res.name ?? "Ẩn danh",
+        name: res.name,
         content: res.content,
         userAvatar: res.userAvatar,
       );

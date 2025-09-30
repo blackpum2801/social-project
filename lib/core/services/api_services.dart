@@ -15,6 +15,7 @@ import 'package:social/data/models/response/posts/like_post_response.dart';
 import 'package:social/data/models/response/posts/post_response.dart';
 import 'package:social/data/models/response/profile/profile_response.dart';
 import 'package:social/data/models/response/refresh/refresh_response.dart';
+import 'package:social/data/models/response/search/search_response.dart';
 part 'api_services.g.dart';
 
 @RestApi()
@@ -74,5 +75,9 @@ abstract class ApiServices {
   @POST(ApiConfig.commentPost)
   Future<CommentResponse> commentPost({
     @Body() required CommentRequest? request,
+  });
+  @GET(ApiConfig.searchUsers)
+  Future<SearchResponse> searchUsers({
+    @Query('keyword') required String keyword,
   });
 }

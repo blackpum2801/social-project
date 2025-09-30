@@ -16,4 +16,5 @@ class ApiConfig {
   static const String getPost = '/posts';
   static const String likePost = '/posts/like';
   static const String commentPost = '/posts/comment';
+  static const String searchUsers = '/users/search';
 }

@@ -8,6 +8,7 @@ import 'package:social/presentation/profile/bloc/profile_module.dart';
 import 'package:social/presentation/profile_change/bloc/profile_change_module.dart';
 import 'package:social/presentation/profile_change_password/bloc/profile_change_password_module.dart';
 import 'package:social/presentation/register/bloc/register_module.dart';
+import 'package:social/presentation/search/bloc/search_module.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 void main() async {
@@ -42,5 +43,6 @@ class DependencyManager {
     await ForgotModule.inject();
     await ProfileChangePasswordModule.inject();
     await PostModule.inject();
+    await SearchModule.inject();
   }
 }
