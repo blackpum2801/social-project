@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 
 class SearchItem extends StatelessWidget {
-  const SearchItem({super.key, this.hintText = 'Tìm kiếm người dùng, bạn bè…'});
   final String hintText;
+  final TextEditingController controller;
+  final ValueChanged<String> onChanged;
+  final VoidCallback? onClear;
+
+  const SearchItem({
+    super.key,
+    this.hintText = 'Tìm kiếm người dùng, bạn bè…',
+    required this.controller,
+    required this.onChanged,
+    this.onClear,
+  });
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+
     return Padding(
       padding: const EdgeInsets.only(top: 8, left: 12, right: 12),
       child: Row(
@@ -35,14 +46,21 @@ class SearchItem extends StatelessWidget {
                 ],
               ),
               child: TextField(
+                controller: controller,
+                onChanged: onChanged,
                 decoration: InputDecoration(
                   isDense: true,
                   hintText: hintText,
                   prefixIcon: const Icon(Icons.search_rounded, size: 20),
-                  suffixIcon: const Padding(
-                    padding: EdgeInsets.only(right: 4),
-                    child: Icon(Icons.close_rounded, size: 18),
-                  ),
+                  suffixIcon: (controller.text.isNotEmpty)
+                      ? IconButton(
+                          icon: const Icon(Icons.close_rounded, size: 18),
+                          onPressed: () {
+                            controller.clear();
+                            onClear?.call();
+                          },
+                        )
+                      : null,
                   contentPadding: const EdgeInsets.symmetric(
                     horizontal: 12,
                     vertical: 12,

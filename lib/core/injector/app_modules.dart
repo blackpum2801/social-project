@@ -1,5 +1,8 @@
 import 'package:social/core/injector/imports.dart';
+import 'package:social/data/repo_impl/search_repository_impl.dart';
+import 'package:social/domain/repo/search_repository.dart';
 import 'package:social/domain/usecases/post_usecase.dart';
+import 'package:social/domain/usecases/search_usecase.dart';
 
 class AppModules {
   static Future<void> inject() async {
@@ -65,6 +68,11 @@ class AppModules {
     );
     injector.registerLazySingleton<CommentPostUsecase>(
       () => CommentPostUsecase(),
+    );
+    // search
+    injector.registerLazySingleton<SearchUsecase>(() => SearchUsecase());
+    injector.registerLazySingleton<SearchRepository>(
+      () => SearchRepositoryImpl(injector.get<ApiServices>()),
     );
     injector.registerLazySingleton<Dio>(() {
       final dio = Dio();
